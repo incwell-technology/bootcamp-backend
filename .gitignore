@@ -101,4 +101,25 @@ venv.bak/
 /site
 
 # mypy
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+
+*.out
+.env
+db.sqlite3
+venv/
+.idea
+*.swp
+credentials.yaml
+credentials.yml
 .mypy_cache/
+static/images/store
+migrations
+.vscode
+lms_user/static/lms_user/site-data
+daemon-services/
+!**/migrations/__init__.py
+venv

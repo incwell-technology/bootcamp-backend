@@ -116,7 +116,7 @@ venv/
 credentials.yaml
 credentials.yml
 .mypy_cache/
-static/images/store
+static
 migrations
 .vscode
 lms_user/static/lms_user/site-data

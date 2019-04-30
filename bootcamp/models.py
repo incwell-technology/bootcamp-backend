@@ -20,13 +20,18 @@ class SingletonModel(models.Model):
         return obj
 
 
+class PhoneNumber(models.Model):
+    type = models.CharField(max_length=300, null=False, blank=False, default="Mobile")
+    phone = models.IntegerField(null=False, blank=False, default="98000000")
+
+    def __str__(self):
+        return f'{self.phone}'
+
 class Company(SingletonModel):
     name = models.CharField(max_length=99, default="Incwell Technology")
-    work1 = models.IntegerField(null=False, blank=False, default="5200000")
-    work2 = models.IntegerField(null=True, blank=True)
-    mobile1 = models.IntegerField(null=False, blank=False, default="5200000")
-    mobile2 = models.IntegerField(null=True, blank=True)
+    phone = models.ManyToManyField(PhoneNumber, related_name="company_phone")
     location = models.CharField(max_length=300, null=False, blank=False, default="Arun thapa Chowk")
+    
 
     def __str__(self):
         return f'{self.name}'

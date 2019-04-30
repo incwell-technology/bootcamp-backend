@@ -10,3 +10,8 @@ admin.site.register(bootcamp_models.Content)
 @admin.register(bootcamp_models.Mentor)
 class MentorAdmin(admin.ModelAdmin):
     list_display = ('firstName','lastName','designation')
+
+
+@admin.register(bootcamp_models.PhoneNumber)
+class PhoneAdmin(admin.ModelAdmin):
+    list_display = ('type','phone')

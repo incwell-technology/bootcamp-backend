@@ -9,4 +9,4 @@ admin.site.register(bootcamp_models.Content)
 
 @admin.register(bootcamp_models.Mentor)
 class MentorAdmin(admin.ModelAdmin):
-    list_display = ('first_name','last_name','designation')
+    list_display = ('firstName','lastName','designation')

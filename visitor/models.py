@@ -1,14 +1,21 @@
 from django.db import models
 from django.utils.timezone import datetime
 from syllabus import models as syllabus_models
+from django.db.models.signals import post_save
+# from django.dispatch import receiver
+# from django.db.models.signals import post_save, pre_save
 
+gender_choice = (
+    (True, 'Male'),
+    (False, 'Female'),
+)
 
 class Student(models.Model):
     firstName = models.CharField(max_length = 300, null=False, blank=False, default="John")
     middleName = models.CharField(max_length = 300, null=True, blank=True)
     lastName = models.CharField(max_length = 300, null=False, blank=False, default="Doe")
-    email = models.EmailField(max_length=70,blank=False, null= False, unique= True)
-    gender = models.BooleanField(default=True) #True=Male
+    email = models.EmailField(max_length=70,blank=False, null= False, unique= True) 
+    gender = models.BooleanField(max_length=1, choices=gender_choice, null=False, blank=False,default=True)
     education = models.CharField(max_length=800, null=False, blank=False, default="Incwell Bootcamp")
     phone = models.CharField(max_length=500, null=False, blank=False, default="9800000")
     gitLink = models.CharField(max_length=800, null=True, blank=True, default="No Git link")
@@ -19,7 +26,7 @@ class Student(models.Model):
 
     def save(self, *args, **kwargs):
         student = super(Student, self).save(*args, **kwargs)   
-
+        
 
 class Enroll(models.Model):
     student = models.ManyToManyField(Student, related_name="enroll_student")
@@ -28,6 +35,10 @@ class Enroll(models.Model):
     def __str__(self):
         return f'{self.student}'
         
+# def save_post(sender, instance, **kwargs):
+#     Enroll.objects.create(student=instance.id, course=2)
+
+# post_save.connect(save_post, sender=Student)
 
 class Talk_To_Mentor(models.Model):
     firstName = models.CharField(max_length = 300, null=False, blank=False, default="John")

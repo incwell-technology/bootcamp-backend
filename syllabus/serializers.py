@@ -2,7 +2,7 @@ from rest_framework import serializers
 from .models import Course, Link
 
 
-class LinkSerializer(serializers.PrimaryKeyRelatedField,serializers.ModelSerializer):
+class LinkSerializer(serializers.ModelSerializer):
 
     class Meta:
         fields = "__all__"
@@ -50,7 +50,7 @@ class Base64ImageField(serializers.ImageField):
 
 
 class CourseSerializer(serializers.ModelSerializer):
-    link = LinkSerializer(many=True, queryset=Link.objects.all())
+    link = LinkSerializer(many=True)
     image = Base64ImageField(
             max_length=None, use_url=True,
         )    
@@ -58,3 +58,4 @@ class CourseSerializer(serializers.ModelSerializer):
     class Meta:
         fields = '__all__'
         model = Course
+        depth = 1

@@ -2,8 +2,15 @@ from rest_framework import serializers
 from bootcamp import models as bootcamp_models
 
 
+class PhoneSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields = '__all__'
+        model = bootcamp_models.PhoneNumber
+
+
 class CompanySerializer(serializers.ModelSerializer):
-    
+    phone = PhoneSerializer(many=True)
+
     class Meta:
         fields = "__all__"
         model = bootcamp_models.Company

@@ -21,16 +21,16 @@ class SingletonModel(models.Model):
 
 
 class PhoneNumber(models.Model):
-    type = models.CharField(max_length=300, null=False, blank=False, default="Mobile")
-    phone = models.IntegerField(null=False, blank=False, default="98000000")
+    type = models.CharField(max_length=300, null=False, blank=False)
+    phone = models.IntegerField(null=False, blank=False)
 
     def __str__(self):
         return f'{self.phone}'
 
 class Company(SingletonModel):
-    name = models.CharField(max_length=99, default="Incwell Technology")
+    name = models.CharField(max_length=99)
     phone = models.ManyToManyField(PhoneNumber, related_name="company_phone")
-    location = models.CharField(max_length=300, null=False, blank=False, default="Arun thapa Chowk")
+    location = models.CharField(max_length=300, null=False, blank=False)
     
 
     def __str__(self):
@@ -38,23 +38,23 @@ class Company(SingletonModel):
 
 
 class Skill(models.Model):
-    skill = models.CharField(max_length = 300, null=False, blank=False, default="DevOps")
+    skill = models.CharField(max_length = 300, null=False, blank=False)
 
     def __str__(self):
         return f'{self.skill}'
 
 
 class Mentor(models.Model):
-    firstName = models.CharField(max_length = 300, null=False, blank=False, default="John")
-    lastName = models.CharField(max_length = 300, null=False, blank=False, default="Doe")
-    photo = models.FileField(upload_to='bootcamp/static/bootcamp/site-data/profile-pictures', blank=True)
-    designation = models.CharField(max_length=300, null=False, blank=False, default="Software Engineer")
-    summary = models.TextField(null=False, blank=False, default="Lorem ipsum")
-    facebookUsername = models.CharField(max_length=800, null=False, blank=False, default="username")
-    mediumUsername = models.CharField(max_length=800, null=False, blank=False, default="username")
-    twitterUsername = models.CharField(max_length=800, null=False, blank=False, default="username")
-    githubUsername = models.CharField(max_length=800, null=False, blank=False, default="username")
-    linkedinUsername = models.CharField(max_length=800, null=False, blank=False, default="username")
+    firstName = models.CharField(max_length = 300, null=False, blank=False)
+    lastName = models.CharField(max_length = 300, null=False, blank=False)
+    photo = models.FileField(upload_to='bootcamp/static/bootcamp/site-data/profile-pictures', blank=False)
+    designation = models.CharField(max_length=300, null=False, blank=False)
+    summary = models.TextField(null=False, blank=False)
+    facebookUsername = models.CharField(max_length=800, null=False, blank=False)
+    mediumUsername = models.CharField(max_length=800, null=False, blank=False)
+    twitterUsername = models.CharField(max_length=800, null=False, blank=False)
+    githubUsername = models.CharField(max_length=800, null=False, blank=False)
+    linkedinUsername = models.CharField(max_length=800, null=False, blank=False)
     skill = models.ManyToManyField(Skill, related_name="mentor_skills")
     course = models.ManyToManyField(syllabus_models.Course, related_name="mentor_course")
     
@@ -63,9 +63,9 @@ class Mentor(models.Model):
 
 
 class Content(models.Model):
-    title = models.CharField(max_length=300, null=False, blank=False, default="About Us")
+    title = models.CharField(max_length=300, null=False, blank=False)
     image = models.FileField(upload_to='bootcamp/static/bootcamp/site-data/content-pictures', blank=True)
-    description = models.TextField(null=False, blank=False, default="Lorem ipsum")
+    description = models.TextField(null=False, blank=False)
 
     def __str__(self):
         return f'{self.title}'

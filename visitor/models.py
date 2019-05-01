@@ -8,14 +8,14 @@ gender_choice = (
 )
 
 class Student(models.Model):
-    firstName = models.CharField(max_length = 300, null=False, blank=False, default="John")
+    firstName = models.CharField(max_length = 300, null=False, blank=False)
     middleName = models.CharField(max_length = 300, null=True, blank=True)
-    lastName = models.CharField(max_length = 300, null=False, blank=False, default="Doe")
+    lastName = models.CharField(max_length = 300, null=False, blank=False)
     email = models.EmailField(max_length=70,blank=False, null= False, unique= True) 
-    gender = models.BooleanField(max_length=1, choices=gender_choice, null=False, blank=False,default=True)
-    education = models.CharField(max_length=800, null=False, blank=False, default="Incwell Bootcamp")
-    phone = models.CharField(max_length=500, null=False, blank=False, default="9800000")
-    gitLink = models.CharField(max_length=800, null=True, blank=True, default="No Git link")
+    gender = models.BooleanField(max_length=1, choices=gender_choice, null=False, blank=False)
+    education = models.CharField(max_length=800, null=False, blank=False)
+    phone = models.CharField(max_length=500, null=False, blank=False)
+    gitLink = models.CharField(max_length=800, null=True, blank=True)
     course = models.ManyToManyField(syllabus_models.Course, related_name="student_course")
 
     def __str__(self):
@@ -38,17 +38,17 @@ class Enroll(models.Model):
 # post_save.connect(save_post, sender=Student)
 
 class Enroll(models.Model):
-    student = models.ManyToManyField(Student, related_name="enroll_student")
-    course = models.ManyToManyField(syllabus_models.Course, related_name="enroll_course")
+    student = models.ForeignKey(Student, related_name="enroll_student", on_delete=models.CASCADE)
+    course = models.ForeignKey(syllabus_models.Course, related_name="enroll_course", on_delete=models.CASCADE)
     
     def __str__(self):
         return f'{self.student}'
         
 
 class Talk_To_Mentor(models.Model):
-    firstName = models.CharField(max_length = 300, null=False, blank=False, default="John")
-    lastName = models.CharField(max_length = 300, null=False, blank=False, default="Doe")
-    email = models.EmailField(max_length=70,blank=False, null=False,default="noemail@email.com")
+    firstName = models.CharField(max_length = 300, null=False, blank=False)
+    lastName = models.CharField(max_length = 300, null=False, blank=False)
+    email = models.EmailField(max_length=70,blank=False, null=False)
 
     def __str__(self):
         return f'{self.firstName} {self.lastName}'

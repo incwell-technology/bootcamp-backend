@@ -32,10 +32,6 @@ class Enroll(models.Model):
     def __str__(self):
         return f'{self.student}'
         
-# def save_post(sender, instance, **kwargs):
-#     Enroll.objects.create(student=instance.id, course=2)
-
-# post_save.connect(save_post, sender=Student)
 
 class Enroll(models.Model):
     student = models.ForeignKey(Student, related_name="enroll_student", on_delete=models.CASCADE)

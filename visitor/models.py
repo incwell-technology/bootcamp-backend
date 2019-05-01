@@ -1,9 +1,6 @@
 from django.db import models
 from django.utils.timezone import datetime
 from syllabus import models as syllabus_models
-from django.db.models.signals import post_save
-# from django.dispatch import receiver
-# from django.db.models.signals import post_save, pre_save
 
 gender_choice = (
     (True, 'Male'),
@@ -39,6 +36,14 @@ class Enroll(models.Model):
 #     Enroll.objects.create(student=instance.id, course=2)
 
 # post_save.connect(save_post, sender=Student)
+
+class Enroll(models.Model):
+    student = models.ManyToManyField(Student, related_name="enroll_student")
+    course = models.ManyToManyField(syllabus_models.Course, related_name="enroll_course")
+    
+    def __str__(self):
+        return f'{self.student}'
+        
 
 class Talk_To_Mentor(models.Model):
     firstName = models.CharField(max_length = 300, null=False, blank=False, default="John")

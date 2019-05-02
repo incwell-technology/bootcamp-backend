@@ -117,9 +117,7 @@ credentials.yaml
 credentials.yml
 .mypy_cache/
 static
-migrations
 .vscode
-lms_user/static/lms_user/site-data
 daemon-services/
 !**/migrations/__init__.py
 venv

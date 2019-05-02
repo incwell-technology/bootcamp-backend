@@ -59,7 +59,7 @@ class Mentor(models.Model):
     course = models.ManyToManyField(syllabus_models.Course, related_name="mentor_course")
     
     def __str__(self):
-        return f'{self.first_name} {self.last_name}'
+        return f'{self.firstName} {self.lastName}'
 
 
 class Content(models.Model):

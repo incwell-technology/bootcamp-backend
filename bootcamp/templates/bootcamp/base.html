@@ -33,13 +33,13 @@
 
           <ul class="nav navbar-nav navbar-right">
             <li class="navlist">
-              <a href="#" class="navlink">About Us</a>
+              <a href="#" class="navlink"> About Us</a>
             </li>
             <li class="navlist">
-              <a href="{% url 'courses' %}" class="navlink">Courses</a>
+              <a href="{% url 'courses' %}" class="navlink {% if request.path == '/courses' %} active {% endif %}">Courses</a>
             </li>
             <li class="navlist">
-              <a href="{% url 'mentors' %}" class="navlink"> Mentors</a>
+              <a href="{% url 'mentors' %}" class="navlink {% if request.path == '/mentors' %} active {% endif %}"> Mentors</a>
             </li>
             <li class="navlist">
               <a href="#" class="navlink">Contact</a>

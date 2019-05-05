@@ -122,3 +122,4 @@ bootcamp/static/bootcamp/site-data
 daemon-services/
 !**/migrations/__init__.py
 venv
+secrets.key

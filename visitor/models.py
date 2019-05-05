@@ -33,6 +33,7 @@ class Enroll(models.Model):
         return f'{self.student}'
         
 
+
 class Talk_To_Mentor(models.Model):
     firstName = models.CharField(max_length = 300, null=False, blank=False)
     lastName = models.CharField(max_length = 300, null=False, blank=False)

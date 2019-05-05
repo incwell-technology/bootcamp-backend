@@ -213,6 +213,7 @@
 }
 .imageholder {
   height: 50%;
+  margin-top: -15px;
 }
 .talk {
   background: #eb596b;
@@ -232,6 +233,7 @@
 .course-details-holder {
   height: 50%;
   position: relative;
+  margin-top: 20px;
 }
 .readmore {
   padding: 5px 0;
@@ -251,6 +253,7 @@
   grid-template-columns: 30% 30% 30%;
   grid-column-gap: 50px;
   grid-row-gap: 20px;
+  margin-bottom: 70px;
 }
 .navibar {
   margin-bottom: 0;

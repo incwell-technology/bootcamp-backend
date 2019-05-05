@@ -1,0 +1,39 @@
+{% extends "bootcamp/layout.html" %}
+{% load static %}
+{% block courses %}
+<div class="static-back">
+    <div class="grayish"></div>
+    <div class="not-grayish"></div>
+</div>
+{% endblock courses %}
+
+{% block content %}
+<div class="title-courses">Courses</div>
+    <div class="grid-maker-course">
+        {% for course in courses %}
+            <div class="box-courses">
+                <div class="course-holder">
+                    <div class="imageholder">
+                    <img class="course-img" src="{% static course.image %}" />
+                    </div>
+                    <div class="course-details-holder">
+                    <div class="details-course">
+                        <div class="name">{{course.name}}</div>
+                        <div class="course-description">
+                            <ul>
+                            <li>{{course.description}}</li>
+                            </ul>
+                            <ul>
+                                <li>Start Time: {{course.start_time}}</li>
+                                <li>End Time: {{course.end_time}}</li>
+                            </ul>
+                            <div class="readmore"><i class="fa fa-angle-down"></i></div>
+                        </div>
+                        <div class="talk">Talk to Advisor</div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock content %}

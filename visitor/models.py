@@ -33,13 +33,6 @@ class Enroll(models.Model):
         return f'{self.student}'
         
 
-class Enroll(models.Model):
-    student = models.ForeignKey(Student, related_name="enroll_student", on_delete=models.CASCADE)
-    course = models.ForeignKey(syllabus_models.Course, related_name="enroll_course", on_delete=models.CASCADE)
-    
-    def __str__(self):
-        return f'{self.student}'
-        
 
 class Talk_To_Mentor(models.Model):
     firstName = models.CharField(max_length = 300, null=False, blank=False)

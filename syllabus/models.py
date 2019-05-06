@@ -12,7 +12,7 @@ class Link(models.Model):
 
 class Course(models.Model):
     name = models.CharField(max_length=500, null=False, blank=False)
-    image = models.FileField(upload_to='syllabus/static/syllabus/site-data/course-pictures', blank=False)
+    image = models.FileField(upload_to='bootcamp/static/bootcamp/site-data/course-pictures', blank=False)
     description = models.TextField(null=False, blank=False)
     startTime = models.DateTimeField(default=datetime.now)
     endTime = models.DateTimeField(default=datetime.now)

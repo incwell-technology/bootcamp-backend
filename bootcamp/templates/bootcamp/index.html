@@ -1,0 +1,20 @@
+{% extends "bootcamp/layout.html" %}
+{% load static %}
+
+{% block index %}
+<div class="background-img">
+    <img src="{% static 'bootcamp/assets/newcorner.svg' %}" class="back-img" />
+</div>
+{% endblock index %}
+
+{% block content %}
+ <div class="main">
+        <div class="chart-container">
+          <img src="{% static 'bootcamp/assets/CHARCTER.svg' %}" class="character" />
+        </div>
+        <div class="main-text">
+          start your career path
+          <a href="{% url 'courses' %}"><button class="explore-button">Explore Now</button></a>
+        </div>
+      </div>
+{% endblock content %}

@@ -1,0 +1,114 @@
+{% extends "bootcamp/layout.html" %}
+{% load static %}
+{% block courses %}
+{% endblock courses %}
+
+{% block content %}
+ <div class="grid-maker">
+        {% for mentor in mentors %}
+            <div class="box">
+                <img class="mentor-img" src="{% static mentor.image %}" data-toggle="modal" type="button" data-target="#mentor{{mentor.id}}"/>
+                <div class="detail" data-toggle="modal" type="button" data-target="#mentor{{mentor.id}}">
+                    <div class="name">{{mentor.firstName}} {{mentor.lastName}} </div>
+                    <div class="post">{{mentor.designation}}</div>
+                    <div class="social">
+                    <ul>
+                        <a href="https://www.facebook.com/{{mentor.facebook}}" target="_blank">
+                        <li class="social-main">
+                            <i class="fa fa-facebook icon-facebook"></i>
+                        </li>
+                        </a>
+                        <a href="https://www.linkedin.com/in/{{mentor.linkedIn}}" target="_blank">
+                        <li class="social-main">
+                            <i class="fa fa-linkedin icon-linkedin"></i>
+                        </li>
+                        </a>
+                        <a href="https://www.medium.com/@{{mentor.medium}}" target="_blank">
+                        <li class="social-main">
+                           <span class="icon-medium" style="font-family:Times New Roman; color:black;font-weight:bold">M</span>
+                        </li>
+                        </a>
+                        <a href="https://www.twitter.com/{{mentor.twitter}}" target="_blank">
+                        <li class="social-main">
+                            <i class="fa fa-twitter icon-twitter"></i>
+                        </li>
+                        </a>
+                        <a href="https://www.github.com/{{mentor.github}}" target="_blank">
+                        <li class="social-main">
+                            <i class="fa fa-github icon-github"></i>
+                        </li>
+                        </a>
+                    </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="mentor{{mentor.id}}" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+              <!-- <div class="modal-header">
+                
+              </div> -->
+              <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal">
+                  &times;
+                </button>
+                <div class="model-container">
+                  <div class="model-img-container">
+                    <img src="{% static mentor.image %}" class="model-img" />
+                  </div>
+                  <div class="model-description">
+                    <div>
+                      <div class="title-popup popupdiv">{{mentor.designation}}</div>
+                      <div class="popupdiv">{{mentor.firstName}} {{ mentor.lastName }}</div>
+                      <div class="popupdiv">
+                        {{ mentor.summary }}
+                      </div>
+                    </div>
+                    <div>
+                      <div class="title-popup popupdiv">Skills:</div>
+                      <div class="skills-grid popupdiv">
+                      {% for skill in mentor.skills %}
+                        <div class="skill-box">{{skill}}</div>
+                      {% endfor %}
+                      </div>
+                    </div>
+                    <div class="social popupdiv">
+                      <ul>
+                        <a href="https://www.facebook.com/{{mentor.facebook}}" target="_blank">
+                        <li class="facebook-li">
+                          <i class="fa fa-facebook icon"></i>
+                        </li>
+                        </a>
+                        <a href="https://www.linkedin.com/in/{{mentor.linkedIn}}" target="_blank">
+                        <li class="linkedin-li">
+                          <i class="fa fa-linkedin icon"></i>
+                        </li>
+                        </a>
+                        <a href="https://www.medium.com/@{{mentor.medium}}" target="_blank">
+                        <li class="medium-li">
+                           <span class="icon-medium" style="font-family:Times New Roman; color:#fff;font-weight:bold">M</span>                          
+                        </li>
+                        </a>
+                        <a href="https://www.twitter.com/{{mentor.twitter}}" target="_blank">
+                        <li class="twitter-li">
+                          <i class="fa fa-twitter icon"></i>
+                        </li>
+                        </a>
+                        <a href="https://www.github.com/{{mentor.github}}" target="_blank">
+                        <li class="github-li">
+                          <i class="fa fa-github icon"></i>
+                        </li>
+                        </a>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        
+      </div>
+{% endblock content %}

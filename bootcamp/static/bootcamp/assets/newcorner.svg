@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1288.167" height="1284.416" viewBox="0 0 1288.167 1284.416">
+  <g id="newcorner" transform="translate(478.639 334.775)">
+    <g id="corners" transform="translate(252.439 177.53) rotate(8)">
+      <path id="corner1" d="M831.422-286.568s-4.7,354.8-429.99,427.64-378.3,401.794-378.3,401.794,25.846,263.163-284.31,98.686S-319.916-93.9-319.916-93.9l192.673-321.9L168.816-490.99H744.485Z" transform="translate(-286.522 103.263) rotate(-10)" fill="blue"/>
+    </g>
+    <g id="corners-2" data-name="corners" transform="translate(180.439 129.53) rotate(8)">
+      <path id="corner1-2" data-name="corner1" d="M830.249-286.761s-4.7,354.466-429.585,427.238S22.723,541.893,22.723,541.893,48.545,804.808-261.32,640.486-320.006-94.269-320.006-94.269l192.492-321.6,295.78-75.119H743.393Z" transform="translate(-207.37 70.647) rotate(-9)" fill="#d6d6d6"/>
+    </g>
+  </g>
+</svg>

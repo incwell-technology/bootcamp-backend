@@ -1,41 +1,110 @@
 {% extends "bootcamp/layout.html" %}
 {% load static %}
 
+{% block script %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+{% endblock script %}
+
+{% block index %}
+<div class="background-image-container">
+    <img src="{% static 'bootcamp/assets/Path_244.svg' %}" class="background-enroll-img" />
+</div>
+{% endblock index %}
+
 {% block content %}
-<br/>
-<br/>
-<br/>
-{% if messages %}
-    {% include 'bootcamp/notification.html' %}
-{% endif %}
+
+
 
 {% if error %}
     {% for err in error %}
         {{err}}
     {% endfor %}
 {% endif %}
- <div class="main">
-        <form name="enroll_form" method="POST">
-        {% csrf_token %}
-        firstname <input type="text" {% if first_name %} value="{{first_name}}" {% endif %} name="first_name" required/>
-        middlename <input type="text" {% if middle_name %} value="{{middle_name}}" {% endif %} name="middle_name"/>
-        lastname <input type="text" {% if last_name %} value="{{ last_name }}" {% endif %} name="last_name" required/>
-        email <input type="email" {% if email %} {% endif %} value="{{ email }}" name="email" required/>
-        education <input type="text" {% if education %} value="{{ education }}" {% endif %} name="education" required/>
-        phone <input type="number" {% if phone %} value="{{ phone }}" {% endif %} name="phone" required/>
-        gitLink <input type="text" {% if git_link %} value="{{ git_link }}" {% endif %} name="git_link"/>
-        gender<select name="gender" required>    
-            <option selected disabled>Select your gender {{gender}}</option>
-            <option value="1">Male</option>
-            <option value="0">Female</option>
-        </select>
-        courses
-        <select name="courses" required>
-            {% for course in courses %}
-                <option value={{course.id}} {% if course == course.id %} selected {% endif %}>{{course.name}}</option>
-            {% endfor %}
-        </select>
-        <button type="submit">Enroll Now</button>
-        </form>
-</div>
+<div class="internal-enroll-container">
+        
+        <div class="image-enroll-container">
+          <img src="{% static 'bootcamp/assets/undraw_moving.svg' %}" class="enrolling-img" />
+        </div>
+        <div class="form-enroll-container">
+          <div class="form-enroll-cont">
+            <div class="courseName">
+              Enroll Now
+            </div>
+            {% if messages %}
+                {% include 'bootcamp/notification.html' %}
+            {% endif %}
+            <form class="enroll-form"  method="POST">
+                {% csrf_token %}
+              <div class="form-row1">
+                <div class="input-field form-content">
+                  <input id="first_name" {% if first_name %} value="{{first_name}}" {% endif %} name="first_name" required type="text" class="validate" />
+                  <label for="first_name">First Name</label>
+                </div>
+                <div class="input-field form-content">
+                  <input id="middle_name" {% if middle_name %} value="{{middle_name}}" {% endif %} name="middle_name" type="text" class="validate" />
+                  <label for="middle_name">Middle Name</label>
+                </div>
+                <div class="input-field form-content">
+                  <input id="last_name" {% if last_name %} value="{{ last_name }}" {% endif %} name="last_name" required type="text" class="validate" />
+                  <label for="last_name">Last Name</label>
+                </div>
+                <!-- <div class="form-content">
+                  <input type="text" class="lname" />
+                  <span class="highlight"></span>
+                  <span class="bar"></span>
+                  <label>Last Name</label>
+                </div> -->
+              </div>
+              <div class="form-row2">
+                <div class="input-field form-content">
+                  <input id="email" {% if email %} {% endif %} value="{{ email }}" name="email" required type="email" class="validate" />
+                  <label for="email">Email</label>
+                </div>
+                <div class="form-content">
+                  <select class="gender-choose" required name="gender">
+                        <option selected disabled>Select your gender {{gender}}</option>
+                        <option value="1">Male</option>
+                        <option value="0">Female</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row2">
+                <div class="input-field form-content">
+                  <input id="education" {% if education %} value="{{ education }}" {% endif %} name="education" required type="text" class="validate" />
+                  <label for="education">Education</label>
+                </div>
+                <div class="input-field form-content">
+                  <input id="phone" {% if phone %} value="{{ phone }}" {% endif %} name="phone" required type="number" class="validate" />
+                  <label for="phone">Phone no</label>
+                </div>
+              </div>
+              <div class="form-row2">
+                <div class="input-field form-content">
+                  <input id="git_link"  {% if git_link %} value="{{ git_link }}" {% endif %} name="git_link" type="text" class="validate" />
+                  <label for="git_link">Git Link</label>
+                </div>
+
+                <div class="form-content">
+                  <select class="course-choose" name="courses">
+                    {% for course in courses %}
+                        <option value={{course.id}} {% if course == course.id %} selected {% endif %}>{{course.name}}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+              <div class="submit-container">
+                <button
+                  type="submit"
+                  value="Submit"
+                  class="submit-button navlink-Enroll"
+                >
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
 {% endblock content %}

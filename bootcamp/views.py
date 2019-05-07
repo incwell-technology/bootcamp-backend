@@ -1,6 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, reverse
 from syllabus import models as syllabus_models
 from bootcamp import models as bootcamp_models
+from visitor import models as visitor_models
+from django.contrib import messages
+from django.http import HttpResponseRedirect
+from bootcamp.common import register_user
+import re
 
 
 def index(request):
@@ -52,3 +57,102 @@ def mentors(request):
         })
     context.update({'mentors':mentors_list})
     return render(request, "bootcamp/mentors.html",context=context)
+
+
+def enroll(request):
+    context = {}
+    courses = syllabus_models.Course.objects.order_by("-id").all()
+    context.update({'courses':courses})
+    
+    if request.method == "POST":
+        error = validate_enroll_data(request)
+
+        if error:
+            messages.success(request, "Please correct following error.",extra_tags="0")
+            context.update({'error':error})    
+            context.update({'first_name':request.POST['first_name']})    
+            context.update({'middle_name':request.POST['middle_name']})    
+            context.update({'last_name':request.POST['last_name']})    
+            context.update({'email':request.POST['email']})    
+            context.update({'git_link':request.POST['git_link']})    
+            context.update({'education':request.POST['education']})    
+            context.update({'phone':request.POST['phone']})    
+            context.update({'phone':request.POST['phone']})    
+            context.update({'gender':request.POST.get('gender')})
+            context.update({'course':request.POST.get('course')})
+            return render(request, "bootcamp/enroll.html", context=context)
+        else:
+            try:
+                user = register_user.register_django_user(request)
+                if user:
+                    messages.success(request, "Thank You for Enrolling. We will contact you soon.", extra_tags="1")
+                else:
+                    messages.success(request, "Sorry. Enroll has not been submitted. Please try again.", extra_tags="0")
+                return HttpResponseRedirect(reverse('enroll'))
+            except Exception as e:
+                print(e)
+                messages.success(request, "Sorry. Enroll has not been submitted. Please try again.", extra_tags="0")
+                return HttpResponseRedirect(reverse('enroll'))
+    else:
+        return render(request, "bootcamp/enroll.html", context=context)
+
+
+def validate_enroll_data(request):
+    err = []
+    if request.POST['first_name'] == "":
+        err.append("First Name field is required.")
+
+    if request.POST['last_name'] == "":
+        err.append("Last Name field is required.")
+
+    if request.POST['email'] == "": 
+        err.append("Email field is required.")
+
+    if request.POST['phone'] == "":
+        err.append("Phone number field is required.")
+    
+    if request.POST['education'] == "":
+        err.append("Education field is required.")
+
+    if request.POST['courses'] is None:
+        err.append('Please choose your course to enroll.')
+
+    if request.POST['gender'] is None:
+        err.append('Please choose your gender.')
+
+    return err
+
+
+def talk_to_mentors(request):
+    context = {}
+    if request.method == "POST":
+        error = validate_talk_to_mentors(request)
+        if error:
+            messages.success(request, "Please correct following error.", extra_tags="0")
+            context.update({'error':error})
+            context.update({'first_name':request.POST['first_name']})
+            context.update({'last_name':request.POST['last_name']})
+            context.update({'email':request.POST['email']})
+            return render(request, "bootcamp/talk-to-mentors.html", context=context)
+        else:
+            talk = visitor_models.Talk_To_Mentor.objects.create(firstName=request.POST['first_name'],
+            lastName=request.POST['last_name'], email=request.POST['email'])
+            if talk:
+                messages.success(request, "Thank You. We will contact you soon.", extra_tags="1")
+            else:
+                messages.success(request, "Sorry. The form was not submit.Please try again.", extra_tags="0")
+        return HttpResponseRedirect(reverse('talk-to-mentors'))
+    else:
+        return render(request, "bootcamp/talk-to-mentors.html")
+    
+
+def  validate_talk_to_mentors(request):
+    err = []
+    if request.POST['first_name'] == "":
+        err.append('First Name field is required.')
+    if request.POST['last_name'] == "":
+        err.append('Last Name field is required.')
+    if request.POST['email'] == "":
+        err.append('Email field is required.')
+
+    return err

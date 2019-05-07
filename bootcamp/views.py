@@ -29,7 +29,7 @@ def courses(request):
 def mentors(request):
     context = {}
     mentors_list = []
-    mentors = bootcamp_models.Mentor.objects.all()
+    mentors = bootcamp_models.Mentor.objects.order_by('mentorCategory').all()
     for mentor in mentors:
         try:
             image_url = mentor.photo.url.split('/static/')[1]
@@ -47,6 +47,7 @@ def mentors(request):
             'twitter':mentor.twitterUsername,
             'github':mentor.githubUsername,
             'linkedIn':mentor.linkedinUsername,
+            'category':mentor.mentorCategory.all(),
             'skills':mentor.skill.all()
         })
     context.update({'mentors':mentors_list})

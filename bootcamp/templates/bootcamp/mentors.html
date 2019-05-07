@@ -5,6 +5,7 @@
 
 {% block content %}
  <div class="grid-maker">
+ {{mentors}}
         {% for mentor in mentors %}
             <div class="box">
                 <img class="mentor-img" src="{% static mentor.image %}" data-toggle="modal" type="button" data-target="#mentor{{mentor.id}}"/>

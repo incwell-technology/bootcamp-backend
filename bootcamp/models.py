@@ -27,6 +27,7 @@ class PhoneNumber(models.Model):
     def __str__(self):
         return f'{self.phone}'
 
+
 class Company(SingletonModel):
     name = models.CharField(max_length=99)
     phone = models.ManyToManyField(PhoneNumber, related_name="company_phone")
@@ -44,6 +45,13 @@ class Skill(models.Model):
         return f'{self.skill}'
 
 
+class MentorCategory(models.Model):
+    category = models.CharField(max_length=300, null=False, blank=False)
+
+    def __str__(self):
+        return f'{self.category}'
+
+
 class Mentor(models.Model):
     firstName = models.CharField(max_length = 300, null=False, blank=False)
     lastName = models.CharField(max_length = 300, null=False, blank=False)
@@ -57,6 +65,7 @@ class Mentor(models.Model):
     linkedinUsername = models.CharField(max_length=800, null=False, blank=False)
     skill = models.ManyToManyField(Skill, related_name="mentor_skills")
     course = models.ManyToManyField(syllabus_models.Course, related_name="mentor_course")
+    mentorCategory = models.ManyToManyField(MentorCategory, related_name="mentor_category")
     
     def __str__(self):
         return f'{self.firstName} {self.lastName}'

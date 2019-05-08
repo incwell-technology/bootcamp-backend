@@ -10,7 +10,7 @@
 
 {% block index %}
 <div class="background-image-container">
-    <img src="{% static 'bootcamp/assets/Path_244.svg' %}" class="background-enroll-img" />
+    <img src="{% static 'bootcamp/assets/Path_244.svg' %}" style="transition:1s ease;" class="background-enroll-img" />
 </div>
 {% endblock index %}
 
@@ -30,7 +30,7 @@
         </div>
         <div class="form-enroll-container">
           <div class="form-enroll-cont">
-            <div class="courseName">
+            <div class="wow bounce courseName">
               Enroll Now
             </div>
             {% if messages %}
@@ -65,7 +65,7 @@
                 </div>
                 <div class="form-content">
                   <select class="gender-choose" required name="gender">
-                        <option selected disabled>Select your gender {{gender}}</option>
+                        <option selected disabled>--Gender--{{gender}}</option>
                         <option value="1">Male</option>
                         <option value="0">Female</option>
                   </select>
@@ -89,6 +89,7 @@
 
                 <div class="form-content">
                   <select class="course-choose" name="courses">
+                        <option selected disabled>--Course--</option>
                     {% for course in courses %}
                         <option value={{course.id}} {% if course == course.id %} selected {% endif %}>{{course.name}}</option>
                     {% endfor %}

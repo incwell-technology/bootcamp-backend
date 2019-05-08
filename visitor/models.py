@@ -10,18 +10,19 @@ gender_choice = (
 )
 
 class StudentEnroll(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='user')
-    full_name = models.CharField(max_length=300, null=False, blank=False)
+    fullName = models.CharField(max_length=400, null=False, blank=False)
     email = models.CharField(max_length=600, null=False, blank=False)
     gender = models.BooleanField(max_length=1, choices=gender_choice, null=False, blank=False)
     education = models.CharField(max_length=800, null=False, blank=False)
     phone = models.CharField(max_length=500, null=False, blank=False)
     gitLink = models.CharField(max_length=800, null=True, blank=True)
     course = models.ManyToManyField(syllabus_models.Course, related_name="student_course")
+    firstName = models.CharField(max_length=300, null=False, blank=False)
     middleName = models.CharField(max_length = 300, null=True, blank=True)
+    lastName = models.CharField(max_length=300, null=False, blank=False)
 
     def __str__(self):
-        return f'{self.user.get_full_name}'
+        return f'{self.fullName}'
 
 
 class Talk_To_Mentor(models.Model):
@@ -31,9 +32,4 @@ class Talk_To_Mentor(models.Model):
 
     def __str__(self):
         return f'{self.firstName} {self.lastName}'
-
-
-
-
-
 

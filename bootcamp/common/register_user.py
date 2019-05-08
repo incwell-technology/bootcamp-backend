@@ -1,17 +1,11 @@
 from django.contrib.auth.models import User
 from visitor import models as visitor_models
 from syllabus import models as syllabus_models
-
+import uuid
 
 def register_django_user(request):
     try:
-        counter = 1
-        if not User.objects.first():
-            counter = 1
-        else:
-            count = User.objects.last()
-            counter = count.id
-        username = request.POST['first_name']+" "+request.POST['middle_name']+" "+request.POST['last_name']+str(counter)
+        username = request.POST['first_name']+str(uuid.uuid4())
         user = User.objects.create(username=username,first_name=request.POST['first_name'],
                                    last_name=request.POST['last_name'], email=request.POST['email'])
         user.save()

@@ -1,0 +1,41 @@
+{% extends "bootcamp/layout.html" %}
+{% load static %}
+
+{% block content %}
+<br/>
+<br/>
+<br/>
+{% if messages %}
+    {% include 'bootcamp/notification.html' %}
+{% endif %}
+
+{% if error %}
+    {% for err in error %}
+        {{err}}
+    {% endfor %}
+{% endif %}
+ <div class="main">
+        <form name="enroll_form" method="POST">
+        {% csrf_token %}
+        firstname <input type="text" {% if first_name %} value="{{first_name}}" {% endif %} name="first_name" required/>
+        middlename <input type="text" {% if middle_name %} value="{{middle_name}}" {% endif %} name="middle_name"/>
+        lastname <input type="text" {% if last_name %} value="{{ last_name }}" {% endif %} name="last_name" required/>
+        email <input type="email" {% if email %} {% endif %} value="{{ email }}" name="email" required/>
+        education <input type="text" {% if education %} value="{{ education }}" {% endif %} name="education" required/>
+        phone <input type="number" {% if phone %} value="{{ phone }}" {% endif %} name="phone" required/>
+        gitLink <input type="text" {% if git_link %} value="{{ git_link }}" {% endif %} name="git_link"/>
+        gender<select name="gender" required>    
+            <option selected disabled>Select your gender {{gender}}</option>
+            <option value="1">Male</option>
+            <option value="0">Female</option>
+        </select>
+        courses
+        <select name="courses" required>
+            {% for course in courses %}
+                <option value={{course.id}} {% if course == course.id %} selected {% endif %}>{{course.name}}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Enroll Now</button>
+        </form>
+</div>
+{% endblock content %}

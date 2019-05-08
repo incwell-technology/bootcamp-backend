@@ -37,6 +37,9 @@
   <!-- Google analytics end -->
     </head>
   <body>
+    {% block mentors %}
+    
+    {% endblock mentors %}
     {% block index %}
     
     {% endblock index %}
@@ -44,7 +47,6 @@
     {% block courses %}
     
     {% endblock courses %}
-
     <div class="body-container">
       <nav class="navbar navibar">
         <div class="container-fluid">
@@ -75,6 +77,7 @@
     {% block content %}
 
     {% endblock content %}
+    
     </div>
    </body>
 </html>

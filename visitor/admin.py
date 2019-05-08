@@ -4,7 +4,7 @@ from visitor import models as visitor_models
 
 @admin.register(visitor_models.StudentEnroll)
 class StudentEnrollAdmin(admin.ModelAdmin):
-    list_display = ('full_name','gitLink','phone')
+    list_display = ('fullName','gitLink','phone')
 
 @admin.register(visitor_models.Talk_To_Mentor)
 class TalkAdmin(admin.ModelAdmin):

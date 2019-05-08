@@ -83,7 +83,7 @@ def enroll(request):
             return render(request, "bootcamp/enroll.html", context=context)
         else:
             try:
-                user = register_user.register_django_user(request)
+                user = register_user.enroll_student(request)
                 if user:
                     messages.success(request, "Thank You for Enrolling. We will contact you soon.", extra_tags="1")
                 else:

@@ -34,28 +34,34 @@ def courses(request):
 def mentors(request):
     context = {}
     mentors_list = []
-    mentors = bootcamp_models.Mentor.objects.order_by('mentorCategory').all()
+    mentors = bootcamp_models.Mentor.objects.all()
+    mentors_all = get_all_mentors()
+    categories = bootcamp_models.MentorCategory.objects.all()
     for mentor in mentors:
         try:
             image_url = mentor.photo.url.split('/static/')[1]
         except Exception as e:
             print(e)
-        mentors_list.append({
-            'id':mentor.id,
-            'firstName':mentor.firstName,
-            'summary':mentor.summary,
-            'lastName':mentor.lastName,
-            'image':image_url,
-            'designation': mentor.designation,
-            'facebook':mentor.facebookUsername,
-            'medium':mentor.mediumUsername,
-            'twitter':mentor.twitterUsername,
-            'github':mentor.githubUsername,
-            'linkedIn':mentor.linkedinUsername,
-            'category':mentor.mentorCategory.all(),
-            'skills':mentor.skill.all()
-        })
+        category_list = []
+        for category in mentor.mentorCategory.all():
+            mentors_list.append({
+                'id':mentor.id,
+                'firstName':mentor.firstName,
+                'summary':mentor.summary,
+                'lastName':mentor.lastName,
+                'image':image_url,
+                'designation': mentor.designation,
+                'facebook':mentor.facebookUsername,
+                'medium':mentor.mediumUsername,
+                'twitter':mentor.twitterUsername,
+                'github':mentor.githubUsername,
+                'linkedIn':mentor.linkedinUsername,
+                'category':category,
+                'skills':mentor.skill.all()
+            })
     context.update({'mentors':mentors_list})
+    context.update({'mentors_all':mentors_all})
+    context.update({'categories':categories})
     return render(request, "bootcamp/mentors.html",context=context)
 
 
@@ -156,3 +162,28 @@ def  validate_talk_to_mentors(request):
         err.append('Email field is required.')
 
     return err
+
+
+def get_all_mentors():
+    mentors = bootcamp_models.Mentor.objects.all()
+    mentors_list = []
+    for mentor in mentors:
+        try:
+            image_url = mentor.photo.url.split('/static/')[1]
+        except Exception as e:
+            print(e)
+        mentors_list.append({
+            'id':mentor.id,
+            'firstName':mentor.firstName,
+            'summary':mentor.summary,
+            'lastName':mentor.lastName,
+            'image':image_url,
+            'designation': mentor.designation,
+            'facebook':mentor.facebookUsername,
+            'medium':mentor.mediumUsername,
+            'twitter':mentor.twitterUsername,
+            'github':mentor.githubUsername,
+            'linkedIn':mentor.linkedinUsername,
+            'skills':mentor.skill.all()
+        })
+    return mentors_list

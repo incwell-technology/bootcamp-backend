@@ -7,7 +7,7 @@ class StudentSerializer(serializers.ModelSerializer):
     
     class Meta:
         fields = "__all__"
-        model = visitor_models.Student
+        model = visitor_models.StudentEnroll
 
     def create(self, validated_data):
         student = visitor_models.Student(

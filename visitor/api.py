@@ -4,7 +4,7 @@ from .serializers import StudentSerializer, TalkSerializer
 
 
 class StudentViewSet(viewsets.ModelViewSet):
-    queryset = visitor_models.Student.objects.order_by("-id").all()
+    queryset = visitor_models.StudentEnroll.objects.order_by("-id").all()
     permission_classes = [
         permissions.AllowAny
     ]

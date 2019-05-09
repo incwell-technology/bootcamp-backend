@@ -5,16 +5,42 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="icon" href="{% static 'bootcamp/assets/logo.ico' %}">
     <link rel="stylesheet" href="{% static 'bootcamp/assets/bootstrap.css' %}"/>
     <script src="{% static 'bootcamp/assets/jquery.js' %}"></script>
     <script src="{% static 'bootcamp/assets/bootstrap.js' %}"></script>
-    <link rel="stylesheet" href="{% static 'bootcamp/assets/style.css' %}" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <title>Incwell Bootcamp</title>
-  </head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139628199-1"></script>
+  
+  {% block script %}
+
+{% endblock script %}
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-139628199-1');
+  </script>
+    <link rel="stylesheet" href="{% static 'bootcamp/assets/style.css' %}" />
+
+  <link rel="stylesheet" href="{% static 'bootcamp/assets/wow/animate.css' %}"/>
+
+  <script src="{% static 'bootcamp/assets/wow/animate.js' %}"></script>
+
+  <script>
+    new WOW().init();
+  </script>
+  <!-- Google analytics end -->
+    </head>
   <body>
+    {% block mentors %}
+    
+    {% endblock mentors %}
     {% block index %}
     
     {% endblock index %}
@@ -22,7 +48,6 @@
     {% block courses %}
     
     {% endblock courses %}
-
     <div class="body-container">
       <nav class="navbar navibar">
         <div class="container-fluid">
@@ -33,7 +58,7 @@
 
           <ul class="nav navbar-nav navbar-right">
             <li class="navlist">
-              <a href="#" class="navlink"> About Us</a>
+              <a href="#" class="navlink {% if request.path == '/about' %} active {% endif %}"> About Us</a>
             </li>
             <li class="navlist">
               <a href="{% url 'courses' %}" class="navlink {% if request.path == '/courses' %} active {% endif %}">Courses</a>
@@ -42,10 +67,10 @@
               <a href="{% url 'mentors' %}" class="navlink {% if request.path == '/mentors' %} active {% endif %}"> Mentors</a>
             </li>
             <li class="navlist">
-              <a href="#" class="navlink">Contact</a>
+              <a href="#" class="navlink {% if request.path == '/contact' %} active {% endif %}">Contact</a>
             </li>
             <li class="unset-nav">
-              <a href="#" class="navlink-Enroll"> Enroll</a>
+              <a href="{% url 'enroll' %}" class="navlink-Enroll"> Enroll</a>
             </li>
           </ul>
         </div>
@@ -53,6 +78,7 @@
     {% block content %}
 
     {% endblock content %}
+    
     </div>
    </body>
 </html>

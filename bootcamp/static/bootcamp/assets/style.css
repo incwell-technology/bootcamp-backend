@@ -1,6 +1,8 @@
 .body-container {
   width: 1100px;
   margin: 0 auto;
+  position: relative;
+  z-index: 10;
 }
 .navbar {
   height: 100px;
@@ -125,13 +127,12 @@
 }
 .social ul li {
   display: inline-block;
-
   margin-right: 5px;
-  width: 35px;
-  height: 35px;
+  width: 25px;
+  height: 25px;
   text-align: center;
   border-radius: 50%;
-  font-size: 18px;
+  font-size: 14px;
 }
 .social-main {
   background-color: #fff;
@@ -140,23 +141,23 @@
   vertical-align: -webkit-baseline-middle;
 }
 .icon-facebook {
-  vertical-align: -webkit-baseline-middle;
+  vertical-align: bottom;
   color: #3b5998;
 }
 .icon-linkedin {
-  vertical-align: -webkit-baseline-middle;
+  vertical-align: bottom;
   color: #0e5983;
 }
 .icon-medium {
-  vertical-align: -webkit-baseline-middle;
+  vertical-align: bottom;
   color: #090706;
 }
 .icon-twitter {
-  vertical-align: -webkit-baseline-middle;
+  vertical-align: bottom;
   color: #50abf1;
 }
 .icon-github {
-  vertical-align: -webkit-baseline-middle;
+  vertical-align: bottom;
   color: #000000;
 }
 .static-back {
@@ -564,7 +565,6 @@ input[type="text"]:not(.browser-default):focus:not([readonly]) {
   display: grid;
   grid-template-columns: 30% 30% 30%;
   grid-column-gap: 5%;
-  
 }
 .showcase-text-top {
   font-size: 42px;
@@ -576,8 +576,6 @@ input[type="text"]:not(.browser-default):focus:not([readonly]) {
 .showcase-card {
   background: #0071bb;
   padding: 20px;
-  position: relative;
-  z-index: 10;
 }
 .showcase-card-text-top {
   font-size: 20px;
@@ -738,7 +736,8 @@ input[type="text"]:not(.browser-default):focus:not([readonly]) {
 .carousel-indicators .active {
   height: unset;
   width: 100px;
-  background-color: #ca3b3b;
+  background-color: #eb596b;
+  color: #fff;
 }
 .carousel-indicators li {
   text-indent: unset;
@@ -804,4 +803,15 @@ body {
   height: 50%;
 }
 .blog-text-down {
+}
+.social {
+  padding: 5px;
+}
+
+.main-text a:hover{
+  text-decoration: none;
+}
+
+.active{
+  color:red;
 }

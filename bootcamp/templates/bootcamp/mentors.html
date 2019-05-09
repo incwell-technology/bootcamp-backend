@@ -57,9 +57,9 @@
             <li data-target="#myCarousel" data-slide-to="0" class="active">
               All
             </li>
-            {% for category in categories %}
+            {% comment %} {% for category in categories %}
               <li data-target="#myCarousel" data-slide-to="{{forloop.counter}}">{{category}}</li>
-            {% endfor %}
+            {% endfor %} {% endcomment %}
           </ol>
 
           <!-- Wrapper for slides -->
@@ -110,7 +110,7 @@
               </div>
             </div>
 
-            {% for category in categories %}
+            {% comment %} {% for category in categories %}
             <div class="item">
                       <div class="mentor-grid-display">
                 {% for mentor in mentors %}
@@ -160,7 +160,7 @@
                 {% endfor %}
                  </div>
                           </div>
-            {% endfor %}
+            {% endfor %} {% endcomment %}
 
           </div>
         </div>

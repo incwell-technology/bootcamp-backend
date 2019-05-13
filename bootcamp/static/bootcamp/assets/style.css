@@ -565,10 +565,6 @@ input[type="text"]:not(.browser-default):focus:not([readonly]) {
   display: grid;
   grid-template-columns: 30% 30% 30%;
   grid-column-gap: 5%;
-<<<<<<< HEAD
-=======
-  
->>>>>>> 66fcdf8c41d9f4fdb61fac8f1315e6d69920372a
 }
 .showcase-text-top {
   font-size: 42px;
@@ -580,11 +576,6 @@ input[type="text"]:not(.browser-default):focus:not([readonly]) {
 .showcase-card {
   background: #0071bb;
   padding: 20px;
-<<<<<<< HEAD
-=======
-  position: relative;
-  z-index: 10;
->>>>>>> 66fcdf8c41d9f4fdb61fac8f1315e6d69920372a
 }
 .showcase-card-text-top {
   font-size: 20px;
@@ -745,12 +736,8 @@ input[type="text"]:not(.browser-default):focus:not([readonly]) {
 .carousel-indicators .active {
   height: unset;
   width: 100px;
-<<<<<<< HEAD
   background-color: #eb596b;
   color: #fff;
-=======
-  background-color: #ca3b3b;
->>>>>>> 66fcdf8c41d9f4fdb61fac8f1315e6d69920372a
 }
 .carousel-indicators li {
   text-indent: unset;
@@ -825,6 +812,6 @@ body {
   text-decoration: none;
 }
 
-.active{
+.nav-active{
   color:red;
 }

@@ -58,7 +58,7 @@
 
           <ul class="nav navbar-nav navbar-right">
             <li class="navlist">
-              <a href="#" class="navlink {% if request.path == '/about' %} nav-active {% endif %}"> About Us</a>
+              <a href="{% url 'about' %}" class="navlink {% if request.path == '/about' %} nav-active {% endif %}"> About Us</a>
             </li>
             <li class="navlist">
               <a href="{% url 'courses' %}" class="navlink {% if request.path == '/courses' %} nav-active {% endif %}">Courses</a>

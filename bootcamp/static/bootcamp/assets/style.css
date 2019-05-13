@@ -815,3 +815,8 @@ body {
 .nav-active{
   color:red;
 }
+
+.modal-backdrop {
+  
+  z-index: unset;
+}

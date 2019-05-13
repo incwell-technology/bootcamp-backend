@@ -30,7 +30,7 @@
             </div>
           </div>
           <div class="showcase-card">
-            <img src="{% static 'bootcamp/assets/mentors-trophy.png' %}" class="wow bounce" />
+            <img src="{% static 'bootcamp/assets/mentors-monitor.png' %}" class="wow bounce" />
             <div class="showcase-card-text-top">Technical Expertise</div>
             <div class="showcase-card-text-bottom">
               <div class="showcase-card-text-bottom-head">Body</div>
@@ -38,7 +38,7 @@
             </div>
           </div>
           <div class="showcase-card">
-            <img src="{% static 'bootcamp/assets/mentors-trophy.png' %}" class="wow fadeInRight"/>
+            <img src="{% static 'bootcamp/assets/mentors-handshake.png' %}" class="wow fadeInRight"/>
             <div class="showcase-card-text-top">Technical Expertise</div>
             <div class="showcase-card-text-bottom">
               <div class="showcase-card-text-bottom-head">Body</div>
@@ -70,7 +70,8 @@
               {% for mentor in mentors_all %}
                 <div class="mentor-grid-child">
                   <div class="mentor-image-container">
-                    <img src="{% static mentor.image %}" />
+                    <img src="{% static mentor.image %}" data-toggle="modal"
+            data-target="#myModal{{forloop.counter}}"/>
                   </div>
                   <div class="mentor-description">
                     <div class="mentor-description-name">{{mentor.firstName}} {{mentor.lastName}}</div>
@@ -92,12 +93,12 @@
                             <i class="fa fa-twitter icon-twitter"></i>
                           </li>
                         </a>
-                        <a href="https://www.linkedin.com/{{mentor.linkedin}}" target="_blank">
+                        <a href="https://www.linkedin.com/{{mentor.linkedIn}}" target="_blank">
                           <li class="social-main">
                             <i class="fa fa-linkedin icon-linkedin"></i>
                           </li>
                         </a>
-                        <a href="https://github.com/{{mentor.github}}">
+                        <a href="https://github.com/{{mentor.github}}" target="_blank">
                           <li class="social-main">
                             <i class="fa fa-github icon-github"></i>
                           </li>
@@ -106,6 +107,73 @@
                     </div>
                   </div>
                 </div>
+
+                <div id="myModal{{forloop.counter}}" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                      <!-- Modal content-->
+                      <div class="modal-content">
+                        <!-- <div class="modal-header">
+                          
+                        </div> -->
+                        <div class="modal-body">
+                          <button type="button" class="close" data-dismiss="modal">
+                            &times;
+                          </button>
+                          <div class="model-container">
+                            <div class="model-img-container">
+                              <img src="{% static mentor.image %}" class="model-img" />
+                            </div>
+                            <div class="model-description">
+                              <div>
+                                <div class="title-popup popupdiv">{{mentor.designation}}</div>
+                                <div class="popupdiv">{{mentor.firstName}} {{mentor.lastName}}</div>
+                                <div class="popupdiv">
+                                  {{mentor.summary}}
+                                </div>
+                              </div>
+                              <div>
+                                <div class="title-popup popupdiv">Skills:</div>
+                                <div class="skills-grid popupdiv">
+                                  {% for skill in mentor.skills %}
+                                    <div class="skill-box">{{ skill }}</div>
+                                  {% endfor %}
+                                </div>
+                              </div>
+                              <div class="social popupdiv">
+                                <ul>
+                                  <a href="https://www.facebook.com/{{mentor.facebook}}" target="_blank">
+                                    <li class="facebook-li">
+                                      <i class="fa fa-facebook icon"></i>
+                                    </li>
+                                  </a>
+                                  <a href="https://www.twitter/{{mentor.twitter}}" target="_blank">
+                                    <li class="linkedin-li">
+                                      <i style="" class="fa fa-twitter icon"></i>
+                                    </li>
+                                  </a>
+                                  <a href="https://www.medium.com/@{{mentor.medium}}" target="_blank">
+                                    <li class="medium-li">
+                                    <span class="icon" style="text-weight:bold;font-family:Times New Roman;">M</span>                                      
+                                    </li> 
+                                  </a>
+                                  <a href="https://www.linkedin.com/{{mentor.linkedIn}}" target="_blank">
+                                    <li class="twitter-li">
+                                      <i class="fa fa-linkedin icon-linkedin"></i>
+                                    </li>
+                                  </a>
+                                  <a href="https://github.com/{{mentor.github}}" target="_blank">
+                                    <li class="github-li">
+                                      <i style="color:white !important;" class="fa fa-github icon-github"></i>
+                                    </li>
+                                  </a>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+        </div>
               {% endfor %}
               </div>
             </div>
@@ -162,6 +230,7 @@
                           </div>
             {% endfor %} {% endcomment %}
           </div>
+          
         </div>
       </div>
       <div class="blog-container">
@@ -199,7 +268,6 @@
               <div class="blog-text-down">UI and UX in the view of a beginner designer.</div>
             </div>
           </div>
-
         </div>
       </div>
 {% endblock content %}

@@ -58,16 +58,16 @@
 
           <ul class="nav navbar-nav navbar-right">
             <li class="navlist">
-              <a href="#" class="navlink {% if request.path == '/about' %} active {% endif %}"> About Us</a>
+              <a href="#" class="navlink {% if request.path == '/about' %} nav-active {% endif %}"> About Us</a>
             </li>
             <li class="navlist">
-              <a href="{% url 'courses' %}" class="navlink {% if request.path == '/courses' %} active {% endif %}">Courses</a>
+              <a href="{% url 'courses' %}" class="navlink {% if request.path == '/courses' %} nav-active {% endif %}">Courses</a>
             </li>
             <li class="navlist">
-              <a href="{% url 'mentors' %}" class="navlink {% if request.path == '/mentors' %} active {% endif %}"> Mentors</a>
+              <a href="{% url 'mentors' %}" class="navlink {% if request.path == '/mentors' %} nav-active {% endif %}"> Mentors</a>
             </li>
             <li class="navlist">
-              <a href="#" class="navlink {% if request.path == '/contact' %} active {% endif %}">Contact</a>
+              <a href="#" class="navlink {% if request.path == '/contact' %} nav-active {% endif %}">Contact</a>
             </li>
             <li class="unset-nav">
               <a href="{% url 'enroll' %}" class="navlink-Enroll"> Enroll</a>

@@ -187,3 +187,23 @@ def get_all_mentors():
             'skills':mentor.skill.all()
         })
     return mentors_list
+
+
+def about(request):
+    teams = bootcamp_models.Team.objects.all()
+    team_list = []
+    for team in teams:
+        try:
+            image_url = team.image.url.split('/static/')[1]
+        except Exception as e:
+            print(e)
+        team_list.append({
+            'id':team.id,
+            'firstName':team.firstName,
+            'lastName':team.lastName,
+            'image':image_url,
+            'designation': team.designation,
+        })
+    context = {}
+    context.update({'teams':team_list})
+    return render(request, "bootcamp/about.html", context=context)

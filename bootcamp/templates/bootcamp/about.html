@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'bootcamp/assets/style.css' %}" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="static-back">
+      <div class="grayish"></div>
+
+      <div class="whiter"></div>
+    </div>
+    <div class="image-bg-mentors">
+      <div class="bg-image-container">
+        <img src="{% static 'bootcamp/assets/bkg-mentors.png' %}" class="bkg-image" />
+        
+      </div>
+      <div class="aboutus-top-text">We Prepare you for your careers</div>
+        <div class="aboutus-down-text">
+          Incwell Bootcampseeks to make your skillsjob ready through mentor-led
+          courses with 24/7 support
+        </div>
+    </div>
+    <div class="body-container mentor-main">
+      <nav class="navbar navibar">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="/"
+              ><img src="{% static 'bootcamp/assets/Bootcamp (1).png' %}" class="logo"
+            /></a>
+          </div>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li class="navlist">
+              <a href="{% url 'about' %}" class="navlink {% if request.path == '/about' %} nav-active {% endif %}"> About Us</a>
+            </li>
+            <li class="navlist">
+              <a href="{% url 'courses' %}" class="navlink {% if request.path == '/courses' %} nav-active {% endif %}">Courses</a>
+            </li>
+            <li class="navlist">
+              <a href="{% url 'mentors' %}" class="navlink {% if request.path == '/mentors' %} nav-active {% endif %}"> Mentors</a>
+            </li>
+            <li class="navlist">
+              <a href="#" class="navlink {% if request.path == '/contact' %} nav-active {% endif %}">Contact</a>
+            </li>
+            <li class="unset-nav">
+              <a href="{% url 'enroll' %}" class="navlink-Enroll"> Enroll</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="aboutus-container">
+        
+      </div>
+      <div class="AboutUs-title">About Us</div>
+      <div class="aboutus-text-container-main">
+        <div class="aboutus-text-container">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum hic
+          repellat fuga, doloribus aut, explicabo impedit dolores eligendi, sint
+          dolorum dignissimos magni dolore perspiciatis quod consequuntur itaque
+          quaerat et provident rem alias rerum! Placeat ipsum earum officia
+          laudantium soluta quibusdam, asperiores facilis veniam alias natus harum
+          fugit nesciunt! Suscipit cumque quos sunt porro, aperiam reiciendis
+          exercitationem ipsum deserunt magni sit veritatis ducimus delectus,
+          dolorum explicabo libero enim tenetur unde doloremque nisi quibusdam
+          pariatur quidem incidunt. Labore laudantium repellat facere laborum
+          ipsum, facilis numquam. Maiores atque, voluptas possimus, quos ipsa quis
+          assumenda facere asperiores deserunt explicabo dolores amet cum
+          consequuntur aut!
+        </div>
+      </div>
+      <div class="aboutus-grids-container">
+        <div class="AboutUs-titles">Behind The Scenes:Bootcamp</div>
+        <div class="aboutus-bts-grid-container">
+        <div class="aboutus-bts-grid">
+          <div class="aboutus-bts-child">
+            <img src="{% static 'bootcamp/assets/kandacreator.jpg' %}" />
+          </div>
+          <div class="aboutus-bts-child">
+            <img src="{% static 'bootcamp/assets/kandacreator.jpg' %}" />
+          </div>
+          <div class="aboutus-bts-child">
+            <img src="{% static 'bootcamp/assets/kandacreator.jpg' %}" />
+          </div>
+          <div class="aboutus-bts-child">
+            <img src="{% static 'bootcamp/assets/kandacreator.jpg' %}" />
+          </div>
+        </div>
+        </div>
+        <div class="seemore-div">
+          <button class="Seemore">See More on Instagram</button>
+        </div>
+        <div class="team">
+          <div class="AboutUs-titles">meet The Team</div>
+          <div class="team-grid">
+            {% for team in teams %}
+                <div class="team-grid-child">
+                    <div class="team-img-container"><img src="{% static team.image ' %}" /></div>
+                    <div class="team-desc">
+                        <div class="team-desc-name">{{team.firstName}} {{team.lastName}}</div>
+                        <div class="team-desc-designation">{{ team.designation }}</div>
+                    </div>
+                    </div>  
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

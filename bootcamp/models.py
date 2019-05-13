@@ -78,3 +78,13 @@ class Content(models.Model):
 
     def __str__(self):
         return f'{self.title}'
+
+
+class Team(models.Model):
+    firstName = models.CharField(max_length=200, null=False, blank=False, default="John")
+    lastName = models.CharField(max_length=200, null=False, blank=False, default="Doe")
+    designation = models.CharField(max_length=300, null=False, blank=False, default="John")
+    image = models.FileField(upload_to='bootcamp/static/bootcamp/site-data/team-pictures', blank=False)
+
+    def __str__(self):
+        return f'{self.firstName} {self.lastName}'

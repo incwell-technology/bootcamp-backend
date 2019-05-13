@@ -6,6 +6,7 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect
 from bootcamp.common import register_user
 import re
+from django.db.models import Q
 
 
 def index(request):
@@ -191,6 +192,7 @@ def get_all_mentors():
 
 def about(request):
     teams = bootcamp_models.Team.objects.all()
+    about_content = bootcamp_models.Content.objects.filter(Q(title='About') | Q(title="About Us") | Q(title="about") | Q(title="about us"))
     team_list = []
     for team in teams:
         try:
@@ -206,4 +208,5 @@ def about(request):
         })
     context = {}
     context.update({'teams':team_list})
+    context.update({'about_content':about_content[0]})
     return render(request, "bootcamp/about.html", context=context)

@@ -23,3 +23,15 @@ def enroll_student(request):
             return False
     except syllabus_models.Course.DoesNotExist:
         return False
+
+
+def  validate_contact(request):
+    err = []
+    if request.POST['full_name'] == "":
+        err.append('Full Name field is required.')
+    if request.POST.get('email') == "":
+        err.append('Email field is required.')
+    if request.POST.get('skype_id') == "":
+        err.append('Skype field is required.')
+
+    return err

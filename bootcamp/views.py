@@ -130,40 +130,27 @@ def validate_enroll_data(request):
     return err
 
 
-def talk_to_mentors(request):
+def contact(request):
     context = {}
     if request.method == "POST":
-        error = validate_talk_to_mentors(request)
+        error = register_user.validate_contact(request)
         if error:
-            messages.success(request, "Please correct following error.", extra_tags="0")
             context.update({'error':error})
-            context.update({'first_name':request.POST['first_name']})
-            context.update({'last_name':request.POST['last_name']})
-            context.update({'email':request.POST['email']})
-            return render(request, "bootcamp/talk-to-mentors.html", context=context)
+            context.update({'full_name':request.POST.get('full_name')})
+            context.update({'email':request.POST.get('email')})
+            context.update({'skype_id':request.POST.get('skype_id')})
+            return render(request, "bootcamp/contact.html", context=context)
         else:
-            talk = visitor_models.Talk_To_Mentor.objects.create(firstName=request.POST['first_name'],
-            lastName=request.POST['last_name'], email=request.POST['email'])
+            talk = visitor_models.Talk_To_Mentor.objects.create(fullName=request.POST.get('full_name'),
+            email=request.POST.get('email'), skypeId=request.POST.get('skype_id'))
             if talk:
                 messages.success(request, "Thank You. We will contact you soon.", extra_tags="1")
             else:
-                messages.success(request, "Sorry. The form was not submit.Please try again.", extra_tags="0")
-        return HttpResponseRedirect(reverse('talk-to-mentors'))
+                messages.success(request, "Sorry. The form was not submitted.Please try again.", extra_tags="0")
+        return HttpResponseRedirect(reverse('contact'))
     else:
-        return render(request, "bootcamp/talk-to-mentors.html")
+        return render(request, "bootcamp/contact.html")
     
-
-def  validate_talk_to_mentors(request):
-    err = []
-    if request.POST['first_name'] == "":
-        err.append('First Name field is required.')
-    if request.POST['last_name'] == "":
-        err.append('Last Name field is required.')
-    if request.POST['email'] == "":
-        err.append('Email field is required.')
-
-    return err
-
 
 def get_all_mentors():
     mentors = bootcamp_models.Mentor.objects.all()
@@ -210,3 +197,4 @@ def about(request):
     context.update({'teams':team_list})
     context.update({'about_content':about_content[0]})
     return render(request, "bootcamp/about.html", context=context)
+

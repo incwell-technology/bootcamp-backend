@@ -359,7 +359,7 @@
   bottom: 6%;
   font-size: 37px;
   left: 4%;
-  color: #3a69fe;
+  color: #0071bb;
   text-transform: capitalize;
 }
 
@@ -948,3 +948,31 @@ body {
   text-align: justify;
   border-radius: 7px;
 }
+
+.mentor-body {
+  background: #0070bb17;
+ }
+ 
+ .contact-main-container {
+  width: fit-content;
+  display: grid;
+  grid-template-columns: 60% 35%;
+  grid-column-gap: 3%;
+  margin: 75px auto;
+ }
+ .contact-form {
+  background: #4543530d;
+  border-radius: 10px;
+  padding: 10px;
+ }
+ .form-row3 {
+  width: 80%;
+  margin: 0 auto;
+ }
+ .form-contact-cont {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+ }

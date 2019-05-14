@@ -26,10 +26,10 @@ class StudentEnroll(models.Model):
 
 
 class Talk_To_Mentor(models.Model):
-    firstName = models.CharField(max_length = 300, null=False, blank=False)
-    lastName = models.CharField(max_length = 300, null=False, blank=False)
+    fullName = models.CharField(max_length = 300, null=False, blank=False)
     email = models.EmailField(max_length=70,blank=False, null=False)
+    skypeId = models.CharField(max_length=300, null=False, blank=False)
 
     def __str__(self):
-        return f'{self.firstName} {self.lastName}'
+        return f'{self.fullName}'
 

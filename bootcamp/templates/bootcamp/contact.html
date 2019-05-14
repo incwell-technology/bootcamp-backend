@@ -1,0 +1,68 @@
+{% extends 'bootcamp/layout.html' %}
+{% load static %}
+{% block script %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+{% endblock script %}
+
+{% block index %}
+<div class="background-image-container">
+    <img src="{% static 'bootcamp/assets/Path_244.svg' %}" class="background-enroll-img" />
+</div>
+{% endblock index %}
+
+{% block content %}
+   
+<div class="contact-main-container">
+        <div class="image-enroll-container">
+          <img src="{% static 'bootcamp/assets/undraw_working_remotely_jh40.svg' %}" class="enrolling-img" />
+        </div>
+        <div class="form-enroll-container contact-form">
+        
+          <div class="form-contact-cont">
+          {% if error %}
+                {% include 'bootcamp/error.html' %}
+            {% endif %}
+            {% if messages %}
+                {% include 'bootcamp/notification.html' %}
+            {% endif %}
+            <div class="courseName">
+              Contact Us
+            </div>
+            <form method="POST">
+            {% csrf_token %}
+              <div class="form-row3">
+                <div class="input-field form-content">
+                  <input id="full_name" {% if full_name %} value="{{full_name}}" {% endif %} name="full_name" type="text" class="validate" />
+                  <label for="full_name">Full Name *</label>
+                </div>
+              </div>
+              <div class="form-row3">
+                <div class="input-field form-content">
+                  <input id="email" {% if email %} value="{{email}}" {% endif %} name="email" type="email" class="validate" />
+                  <label for="email">Email *</label>
+                </div>
+              </div>
+              <div class="form-row3">
+                <div class="input-field form-content">
+                  <input id="skype_id" {% if skype_id %} value="{{skype_id}}" {% endif %} name="skype_id" type="text" class="validate" />
+                  <label for="skype">SkypeId *</label>
+                </div>
+              </div>
+
+              <div class="submit-container">
+                <button
+                  type="submit"
+                  value="Submit"
+                  class="submit-button navlink-Enroll"
+                >
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+{% endblock content %}

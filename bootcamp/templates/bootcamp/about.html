@@ -55,7 +55,7 @@
               <a href="{% url 'mentors' %}" class="navlink {% if request.path == '/mentors' %} nav-active {% endif %}"> Mentors</a>
             </li>
             <li class="navlist">
-              <a href="#" class="navlink {% if request.path == '/contact' %} nav-active {% endif %}">Contact</a>
+              <a href="{% url 'contact' %}" class="navlink {% if request.path == '/contact' %} nav-active {% endif %}">Contact</a>
             </li>
             <li class="unset-nav">
               <a href="{% url 'enroll' %}" class="navlink-Enroll"> Enroll</a>

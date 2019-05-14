@@ -8,4 +8,4 @@ class StudentEnrollAdmin(admin.ModelAdmin):
 
 @admin.register(visitor_models.Talk_To_Mentor)
 class TalkAdmin(admin.ModelAdmin):
-    list_display = ('firstName','lastName','email')
+    list_display = ('fullName','skypeId','email')

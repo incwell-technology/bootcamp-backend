@@ -9,7 +9,11 @@
   </div>
   <div class="image-bg-mentors">
     <div class="bg-image-container">
-      <img src="{% static 'bootcamp/assets/bkg-mentors.png' %}" class="bkg-image" />
+      {% if mentors_pic %}
+        <img src="{% static mentors_pic %}" class="bkg-image" />
+      {% else %}
+        <img src="{% static 'bootcamp/assets/MentorsBannerSite.png' %}" class="bkg-image" />
+      {% endif %}
     </div>
   </div>
 {% endblock mentors %}

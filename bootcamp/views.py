@@ -38,6 +38,15 @@ def mentors(request):
     mentors = bootcamp_models.Mentor.objects.all()
     mentors_all = get_all_mentors()
     categories = bootcamp_models.MentorCategory.objects.all()
+    mentors_pic = bootcamp_models.Content.objects.none()
+    try:
+        content_instance = bootcamp_models.Content.objects.get(Q(title="Mentor") | Q(title="Mentors") | Q(title="mentor") | Q(title="mentors"))
+        try:
+            mentors_pic = content_instance.image.url.split('/static/')[1]
+        except:
+            mentors_pic = bootcamp_models.Content.objects.none()
+    except bootcamp_models.Content.DoesNotExist:
+        mentors_pic = bootcamp_models.Content.objects.none()
     for mentor in mentors:
         try:
             image_url = mentor.photo.url.split('/static/')[1]
@@ -63,6 +72,7 @@ def mentors(request):
     context.update({'mentors':mentors_list})
     context.update({'mentors_all':mentors_all})
     context.update({'categories':categories})
+    context.update({'mentors_pic':mentors_pic})
     return render(request, "bootcamp/mentors.html",context=context)
 
 

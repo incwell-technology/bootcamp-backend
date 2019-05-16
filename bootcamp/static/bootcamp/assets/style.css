@@ -1,8 +1,6 @@
 .body-container {
   width: 1100px;
   margin: 0 auto;
-  position: relative;
-  z-index: 10;
 }
 .navbar {
   height: 100px;
@@ -361,7 +359,7 @@
   bottom: 6%;
   font-size: 37px;
   left: 4%;
-  color: #3a69fe;
+  color: #0071bb;
   text-transform: capitalize;
 }
 
@@ -565,10 +563,6 @@ input[type="text"]:not(.browser-default):focus:not([readonly]) {
   display: grid;
   grid-template-columns: 30% 30% 30%;
   grid-column-gap: 5%;
-<<<<<<< HEAD
-=======
-  
->>>>>>> 66fcdf8c41d9f4fdb61fac8f1315e6d69920372a
 }
 .showcase-text-top {
   font-size: 42px;
@@ -580,11 +574,6 @@ input[type="text"]:not(.browser-default):focus:not([readonly]) {
 .showcase-card {
   background: #0071bb;
   padding: 20px;
-<<<<<<< HEAD
-=======
-  position: relative;
-  z-index: 10;
->>>>>>> 66fcdf8c41d9f4fdb61fac8f1315e6d69920372a
 }
 .showcase-card-text-top {
   font-size: 20px;
@@ -603,7 +592,10 @@ input[type="text"]:not(.browser-default):focus:not([readonly]) {
 .bg-image-container {
   width: fit-content;
   margin: 0 auto;
-  background: #0071bb;
+  background: #719780;
+  position: absolute;
+  left: 0;
+  right: 0;
 }
 
 .showcase-card img {
@@ -745,12 +737,8 @@ input[type="text"]:not(.browser-default):focus:not([readonly]) {
 .carousel-indicators .active {
   height: unset;
   width: 100px;
-<<<<<<< HEAD
   background-color: #eb596b;
   color: #fff;
-=======
-  background-color: #ca3b3b;
->>>>>>> 66fcdf8c41d9f4fdb61fac8f1315e6d69920372a
 }
 .carousel-indicators li {
   text-indent: unset;
@@ -821,10 +809,170 @@ body {
   padding: 5px;
 }
 
-.main-text a:hover{
+.main-text a:hover {
   text-decoration: none;
 }
 
-.active{
-  color:red;
+.nav-active {
+  color: red;
 }
+
+.modal-backdrop {
+  z-index: unset;
+}
+
+.whiter {
+  height: 80%;
+  background-image: linear-gradient(#e3e7e9, #e8f2f8);
+  width: 100%;
+  /* background: #fff; */
+}
+
+.aboutus-container {
+  color: #fff;
+  margin-top: 118px;
+  text-align: center;
+}
+.aboutus-top-text {
+  margin-top: 100px;
+  font-size: 42px;
+  position: relative;
+  color: #fff;
+}
+.aboutus-down-text {
+  font-size: 18px;
+  padding-top: 15px;
+  position: relative;
+  color: #fff;
+}
+.AboutUs-title {
+  padding-top: 100px;
+  text-align: center;
+  font-size: 24px;
+  color: #0071bb;
+  margin-top: 225px;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+}
+.AboutUs-titles {
+  margin: 20px 0;
+  text-align: center;
+  font-size: 24px;
+  color: #0071bb;
+  text-transform: capitalize;
+}
+.aboutus-text-container {
+  width: 90%;
+  margin: 20px auto;
+}
+.aboutus-grids-container {
+  text-align: center;
+  margin-top: 50px;
+}
+.aboutus-bts-grid-container {
+}
+.aboutus-bts-grid {
+  display: grid;
+  grid-template-columns: 240px 240px 240px 240px;
+  grid-column-gap: 14.5px;
+  margin: 0 auto;
+  width: fit-content;
+  padding: 27.25px;
+  background: #81c7f3;
+  border-radius: 7px;
+}
+.aboutus-bts-child {
+  max-height: 240px;
+  overflow: hidden;
+}
+.aboutus-bts-child img {
+  width: 100%;
+}
+.seemore-div {
+  margin: 40px 0;
+  width: 100%;
+  text-align: center;
+}
+.Seemore {
+  width: fit-content;
+  padding: 12px;
+  background: #eb596b;
+  border: none;
+  outline: none;
+  border-radius: 7px;
+  color: #fff;
+  /* webkit-box-sizing: unset;
+
+  box-sizing: unset; */
+}
+.team {
+  text-align: center;
+}
+.team-title {
+}
+.team-grid {
+  display: grid;
+  grid-template-columns: 200px 200px 200px 200px 200px;
+  grid-column-gap: 14.5px;
+  grid-row-gap: 20px;
+  width: fit-content;
+  margin: 0 auto;
+  margin-bottom: 100px;
+}
+.team-grid-child {
+  border-radius: 7px;
+  overflow: hidden;
+}
+.team-img-container {
+  height: 200px;
+
+  overflow: hidden;
+}
+.team-img-container img {
+  width: 100%;
+}
+.team-desc {
+  padding: 10px;
+  background: #0071bb;
+  color: #fff;
+}
+.team-desc-name {
+}
+.team-desc-designation {
+}
+.aboutus-text-container-main {
+  background: #fff;
+  padding: 40px;
+  width: 1058px;
+  margin: 0 auto;
+  text-align: justify;
+  border-radius: 7px;
+}
+
+.mentor-body {
+  background: #0070bb17;
+ }
+ 
+ .contact-main-container {
+  width: fit-content;
+  display: grid;
+  grid-template-columns: 60% 35%;
+  grid-column-gap: 3%;
+  margin: 75px auto;
+ }
+ .contact-form {
+  background: #4543530d;
+  border-radius: 10px;
+  padding: 10px;
+ }
+ .form-row3 {
+  width: 80%;
+  margin: 0 auto;
+ }
+ .form-contact-cont {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+ }

@@ -1,10 +1,25 @@
 {% extends "bootcamp/layout.html" %}
 {% load static %}
+
+{% block course-container %}
+class="background-changer"
+{% endblock course-container %}
+
 {% block courses %}
 <div class="static-back">
     <div class="grayish"></div>
-    <div class="not-grayish"></div>
+    <div class="whiter"></div>
 </div>
+<div class="image-bg-mentors">
+      <div class="bg-image-container">
+        <img src="{% static 'bootcamp/assets/bkg-mentors.png' %}" class="bkg-image" />
+      </div>
+      <div class="aboutus-top-text">Select From our Various Courses</div>
+      <div class="aboutus-down-text">
+      If you are unsure about what to study you can talk to our advisors at any time at your convinience.
+        
+      </div>
+    </div>
 {% endblock courses %}
 
 {% block content %}
@@ -25,6 +40,7 @@
                             </ul>
                             <ul>
                                 <li>Start Time: {{course.start_time}}</li>
+                                <br/>
                                 <li>End Time: {{course.end_time}}</li>
                             </ul>
                             <div class="readmore"><i class="fa fa-angle-down"></i></div>

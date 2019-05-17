@@ -8,5 +8,6 @@ urlpatterns = [
     path('mentors', bootcamp_views.mentors, name="mentors"),
     path('enroll', bootcamp_views.enroll, name="enroll"),
     path('about', bootcamp_views.about, name="about"),
-    path('contact', bootcamp_views.contact, name="contact")
+    path('contact', bootcamp_views.contact, name="contact"),
+    path('scholarship', bootcamp_views.scholarship, name="scholarship")
 ]

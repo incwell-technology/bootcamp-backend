@@ -208,3 +208,41 @@ def about(request):
     context.update({'about_content':about_content[0]})
     return render(request, "bootcamp/about.html", context=context)
 
+
+def scholarship(request):
+    if validate_scholarship(request):
+        pass
+
+    
+def validate_scholarship(request):
+    err = 0
+    if request.POST['fullName'] == "":
+        err = 1
+
+    if request.POST['email'] == "":
+        err = 1
+
+    if request.POST['phone'] == "":
+        err = 1
+
+    if request.POST['reason'] == "":
+        err = 1
+
+    if request.POST['projectLink'] == "":
+        err = 1
+
+    if request.POST['planToContribute'] == "":
+        err = 1
+
+    if request.POST['education'] == "":
+        err = 1
+
+    if request.POST['university'] == "":
+        err = 1
+
+
+    if err == 1:
+        return False
+    else:
+        return True
+        

@@ -249,6 +249,7 @@
   grid-template-columns: 30% 30% 30%;
   grid-column-gap: 50px;
   margin-bottom: 50px;
+  grid-row-gap: 38px;
 }
 
 .navibar {

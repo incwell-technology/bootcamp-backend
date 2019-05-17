@@ -177,29 +177,28 @@
 
 .box-courses {
   width: 100%;
-  height: 60vh;
+
   overflow: hidden;
   position: relative;
   border-radius: 15px;
-  border: 1px solid #707070;
+  border: 1px solid #70707070;
   background: #fff;
   text-align: center;
 }
 
 .details-course {
-  position: absolute;
   width: 100%;
   text-align: center;
   bottom: 0;
-  color: #707070;
+  color: #0071bb;
 }
 .details-course ul {
-  width: 90%;
-  margin: 0 auto;
+  width: 100%;
+  margin: 10px auto;
   text-align: justify;
 }
 .course-img {
-  width: 50%;
+  height: 100%;
 }
 .helper {
   display: inline;
@@ -207,7 +206,9 @@
   vertical-align: middle;
 }
 .imageholder {
-  height: 50%;
+  height: 200px;
+  background-color: #81d5fa;
+  overflow: hidden;
 }
 .talk {
   background: #eb596b;
@@ -221,12 +222,12 @@
 .course-holder {
   position: relative;
   height: 100%;
-  padding: 15% 0;
 }
 
 .course-details-holder {
   height: 50%;
   position: relative;
+  padding: 15px;
 }
 .readmore {
   padding: 5px 0;
@@ -238,13 +239,19 @@
   font-size: 44px;
   /* margin: 0 auto; */
   padding: 40px 0;
+  margin-top: 305px;
 }
 .grid-maker-course {
   margin-top: 0%;
   display: grid;
+  width: 1058px;
+  margin: 0 auto;
   grid-template-columns: 30% 30% 30%;
   grid-column-gap: 50px;
+  margin-bottom: 50px;
+  grid-row-gap: 38px;
 }
+
 .navibar {
   margin-bottom: 0;
 }
@@ -359,7 +366,7 @@
   bottom: 6%;
   font-size: 37px;
   left: 4%;
-  color: #0071bb;
+  color: #3a69fe;
   text-transform: capitalize;
 }
 
@@ -592,7 +599,7 @@ input[type="text"]:not(.browser-default):focus:not([readonly]) {
 .bg-image-container {
   width: fit-content;
   margin: 0 auto;
-  background: #719780;
+  background: #0071bb;
   position: absolute;
   left: 0;
   right: 0;
@@ -759,9 +766,7 @@ input[type="text"]:not(.browser-default):focus:not([readonly]) {
   padding: 5% 0;
   height: 800px;
 }
-body {
-  background: #0070bb17;
-}
+
 .white {
   height: 80%;
   background: #fff;
@@ -951,28 +956,32 @@ body {
 
 .mentor-body {
   background: #0070bb17;
- }
- 
- .contact-main-container {
+}
+
+.contact-main-container {
   width: fit-content;
   display: grid;
   grid-template-columns: 60% 35%;
   grid-column-gap: 3%;
   margin: 75px auto;
- }
- .contact-form {
+}
+.contact-form {
   background: #4543530d;
   border-radius: 10px;
   padding: 10px;
- }
- .form-row3 {
+}
+.form-row3 {
   width: 80%;
   margin: 0 auto;
- }
- .form-contact-cont {
+}
+.form-contact-cont {
   position: absolute;
   top: 50%;
   left: 0;
   right: 0;
   transform: translateY(-50%);
- }
+}
+
+.background-changer {
+  background-color: #e6eef2;
+}

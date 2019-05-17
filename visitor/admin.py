@@ -9,3 +9,8 @@ class StudentEnrollAdmin(admin.ModelAdmin):
 @admin.register(visitor_models.Talk_To_Mentor)
 class TalkAdmin(admin.ModelAdmin):
     list_display = ('fullName','skypeId','email')
+
+
+@admin.register(visitor_models.Scholarship)
+class ScholarshipAdmin(admin.ModelAdmin):
+    list_display = ('fullName','email','phone')

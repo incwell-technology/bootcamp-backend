@@ -33,3 +33,17 @@ class Talk_To_Mentor(models.Model):
     def __str__(self):
         return f'{self.fullName}'
 
+
+class Scholarship(models.Model):
+    reason = models.CharField(max_length=800, null=False, blank=False)
+    projectLink = models.CharField(max_length=300, null=False, blank=False)
+    planToContribute = models.TextField(null=False, blank=False)
+    education = models.CharField(max_length=500, null=False, blank=False)
+    university = models.CharField(max_length=300, null=False, blank=False)
+    email = models.CharField(max_length=200, null=False, blank=False)
+    fullName = models.CharField(max_length=500, null=False, blank=False)
+    phone = models.CharField(max_length=400, null=False, blank=False)
+
+    def __str__(self):
+        return f'{self.fullName}'
+        

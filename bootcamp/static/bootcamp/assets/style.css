@@ -985,3 +985,120 @@ input[type="text"]:not(.browser-default):focus:not([readonly]) {
 .background-changer {
   background-color: #e6eef2;
 }
+
+.white-bg {
+  height: 50%;
+  background: linear-gradient(#e8f2f8, #fff);
+  width: 100%;
+}
+.whiter-bg {
+  height: 50%;
+  background: linear-gradient(#fff, #e8f2f8);
+  width: 100%;
+}
+
+.scholar-display {
+  background: #fff;
+  text-align: center;
+  color: #0071bb;
+  margin-bottom: 30px;
+}
+.scholarship-form {
+  /* background: #e0e9ef; */
+}
+.scholarship-form-content {
+  position: relative;
+  margin-bottom: 45px;
+  padding: 5px;
+  margin: 10px 0;
+  width: 80%;
+  margin: 0 auto;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.scholarship-form-row2 {
+  display: grid;
+  width: 80%;
+  margin: 0 auto;
+  grid-template-columns: 47% 47%;
+  grid-column-gap: 6%;
+}
+.scholar-title {
+  font-size: 34px;
+  position: relative;
+  left: -15%;
+}
+.scholar-desc {
+  padding: 10px;
+}
+.scholar-cards-parent {
+  display: grid;
+  grid-template-columns: 300px 300px 300px;
+  grid-column-gap: 30px;
+  width: fit-content;
+  margin: 0 auto;
+}
+.scholar-card {
+  border-radius: 7px;
+  padding: 15px;
+  background: #fff;
+  color: gray;
+  box-shadow: 0 5px 5px 0;
+}
+.scholar-card-title {
+}
+.scholar-card-img-container {
+}
+.scholar-card-img {
+  width: 40%;
+}
+.scholar-card-title {
+  font-size: 22px;
+  padding: 10px;
+  color: #000;
+}
+.scholar-card-desc {
+  color: #000;
+}
+.scholar-form {
+  background: #e7e7e77a;
+  width: 1058px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  padding-bottom: 20px;
+  border-radius: 7px;
+}
+.scholar-form-title {
+  text-align: center;
+  font-size: 34px;
+  color: #0071bb;
+  padding: 15px;
+}
+.scholar-apply {
+  padding: 10px 25px;
+  margin-top: 10px;
+}
+.scholarship-form-content {
+  text-align: center;
+  padding: 10px;
+}
+/* 
+.not-navbar {
+  margin-top: 275px;
+} */
+.image-bg-scholar {
+  height: 15%;
+  top: 20%;
+  /* background: #e3e7e9; */
+  width: 100%;
+  margin: 0 auto;
+  position: absolute;
+  z-index: 1;
+  text-align: center;
+}
+.scholar-grid-container {
+  width: 1058px;
+  margin: 0 auto;
+  padding: 50px 0;
+  background: #e7e7e77a;
+}

@@ -1,0 +1,120 @@
+{% extends "bootcamp/base.html" %}
+{% load static %}
+{% block materialize %}
+    <link
+      rel="stylesheet"
+      href="{% static 'bootcamp/assets/masterialize.css' %}"
+    />
+<script src="{% static 'bootcamp/assets/materialize.js' %}"></script>
+
+{% endblock materialize %}
+
+{% block content %}
+<div class="not-navbar">
+        <div class="scholar-display">
+          <div class="scholar-title">Scholarship</div>
+          <div class="scholar-desc">
+            We believe in building a nation by producing highly skilled human
+            resources. We sponsor a scholarship for a hardworking person.
+          </div>
+          <div class="scholar-grid-container">
+            <div class="scholar-cards-parent">
+              <div class="scholar-card">
+                <div class="scholar-card-img-container">
+                  <img class="scholar-card-img" src="{% static 'bootcamp/assets/assignment.png' %}" />
+                </div>
+                <div class="scholar-card-title">Assignments</div>
+                <div class="scholar-card-desc">
+                  Our team will have a short discussion regarding yourself and
+                  your experience so far in the field of computer science.
+                </div>
+              </div>
+              <div class="scholar-card">
+                <div class="scholar-card-img-container">
+                  <img class="scholar-card-img" src="{% static 'bootcamp/assets/meeting.png' %}" />
+                </div>
+
+                <div class="scholar-card-title">Meeting</div>
+                <div class="scholar-card-desc">
+                  We will have a technical test on programming foundation. You
+                  can use the programming language of your interest.
+                </div>
+              </div>
+              <div class="scholar-card">
+                <div class="scholar-card-img-container">
+                  <img class="scholar-card-img" src="scholarship3.png" />
+                </div>
+                <div class="scholar-card-title">Assignments</div>
+                <div class="scholar-card-desc">
+                  You will be shortlisted as per our team review on our website
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="scholar-form">
+          <div class="scholar-form-title">Scholarship Application</div>
+          {% if messages %}
+              {% include "bootcamp/notification.html" %}
+          {% endif %}
+          <form class="scholarship-form" method="POST" action="/apply-scholarship">
+          {% csrf_token %}
+            <div class="scholarship-form-row2">
+              <div class="input-field form-content">
+                <input id="name" {% if fullname %} value="{{fullname}}" {% endif %} type="text" name="fullName" required class="validate" />
+                <label for="name">Full Name *</label>
+              </div>
+              <div class="input-field form-content">
+                <input id="phone" {% if fullname %} value="{{fullname}}" {% endif %} name="phone" required type="text" class="validate" />
+                <label for="phone">Phone number *</label>
+              </div>
+            </div>
+
+            <div class="scholarship-form-row2">
+              <div class="input-field form-content">
+                <input id="email" {% if email %} value="{{email}}" {% endif %} name="email" required type="email" class="validate" />
+                <label for="email">Email *</label>
+              </div>
+              <div class="input-field form-content">
+                <input id="link" {% if projectLink %} value="{{projectLink}}" {% endif %} type="text" name="projectLink" required class="validate" />
+                <label for="link">Link of projects you have done *</label>
+              </div>
+            </div>
+            <div class="scholarship-form-content">
+              <div class="input-field form-content">
+                <input id="why" {% if reason %} value="{{reason}}" {% endif %} type="text" name="reason" required class="validate" />
+                <label for="why"
+                  >Why do you want to apply for scholarship? *</label
+                >
+              </div>
+            </div>
+
+            <div class="scholarship-form-content">
+              <div class="input-field form-content">
+                <input id="contribute" {% if planToContribute %} value="{{planToContribute}}" {% endif %} name="planToContribute" required type="text" class="validate" />
+                <label for="contribute"
+                  >How do you plan to contribute if you get selected? *</label
+                >
+              </div>
+            </div>
+            <div class="scholarship-form-row2">
+              <div class="input-field form-content">
+                <input id="Education" {% if education %} value="{{education}}" {% endif %} name="education" required type="text" class="validate" />
+                <label for="Education">Education *</label>
+              </div>
+              <div class="input-field form-content">
+                <input id="university" {% if university %} value="{{university}}" {% endif %} name="university" requried type="text" class="validate" />
+                <label for="university">University *</label>
+              </div>
+            </div>
+
+            <div class="scholarship-form-content">
+              <button class="navlink-Enroll scholar-apply" type="submit">
+                Apply
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+{% endblock content %}
+

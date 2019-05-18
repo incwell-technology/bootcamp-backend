@@ -205,7 +205,9 @@ def about(request):
         })
     context = {}
     context.update({'teams':team_list})
-    context.update({'about_content':about_content[0]})
+    if about_content:
+        context.update({'about_content':about_content[0]})
+    
     return render(request, "bootcamp/about.html", context=context)
 
 

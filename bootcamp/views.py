@@ -205,15 +205,40 @@ def about(request):
         })
     context = {}
     context.update({'teams':team_list})
-    context.update({'about_content':about_content[0]})
+    if about_content:
+        context.update({'about_content':about_content[0]})
+    
     return render(request, "bootcamp/about.html", context=context)
 
 
 def scholarship(request):
-    if validate_scholarship(request):
-        pass
+    return render(request, "bootcamp/scholarship.html")
 
-    
+
+def apply_scholarship(request):
+    if validate_scholarship(request):
+        if visitor_models.Scholarship.objects.create(reason=request.POST['reason'], projectLink=request.POST['projectLink'],
+        planToContribute=request.POST['planToContribute'],education=request.POST['education'],university=request.POST['university'],
+        email=request.POST['email'],fullName=request.POST['fullName'],phone=request.POST['phone']):
+            messages.success(request, "Thank You for applying scholarship. We will contact you soon.", extra_tags="1")
+        else:
+            messages.success(request, "Sorry Scholarship could not be applied. Please try again.", extra_tags="0")
+        return HttpResponseRedirect(reverse('scholarship'))
+    else:
+        context = {}
+        context.update({'fullname':request.POST['fullName']})
+        context.update({'email':request.POST['email']})
+        context.update({'phone':request.POST['phone']})
+        context.update({'reason':request.POST['reason']})
+        context.update({'projectLink':request.POST['projectLink']})
+        context.update({'planToContribute':request.POST['planToContribute']})
+        context.update({'education':request.POST['education']})
+        context.update({'university':request.POST['university']})
+        messages.success(request, "Some fields are missing. Make sure you have field all fields with *.", extra_tags="0")
+        return render(request, "bootcamp/scholarship.html", context=context)
+
+
+
 def validate_scholarship(request):
     err = 0
     if request.POST['fullName'] == "":

@@ -869,6 +869,7 @@ input[type="text"]:not(.browser-default):focus:not([readonly]) {
 .aboutus-text-container {
   width: 90%;
   margin: 20px auto;
+  word-wrap: break-word;
 }
 .aboutus-grids-container {
   text-align: center;
@@ -1101,4 +1102,11 @@ input[type="text"]:not(.browser-default):focus:not([readonly]) {
   margin: 0 auto;
   padding: 50px 0;
   background: #e7e7e77a;
+}
+
+.apply-scholarship
+{
+  width:100%;
+  text-align: center;
+  margin-bottom:35px;
 }

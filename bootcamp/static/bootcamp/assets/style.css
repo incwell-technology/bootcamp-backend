@@ -546,7 +546,7 @@ input[type="text"]:not(.browser-default):focus:not([readonly]) {
 
 .bkg-image {
   width: 1058px;
-  opacity: 0.7;
+  opacity: 1;
 }
 
 .navbar-brand {
@@ -599,7 +599,7 @@ input[type="text"]:not(.browser-default):focus:not([readonly]) {
 .bg-image-container {
   width: fit-content;
   margin: 0 auto;
-  background: #0071bb;
+  background: #628f99;
   position: absolute;
   left: 0;
   right: 0;
@@ -1109,4 +1109,8 @@ input[type="text"]:not(.browser-default):focus:not([readonly]) {
   width:100%;
   text-align: center;
   margin-bottom:35px;
+}
+
+a:hover{
+  text-decoration: none;
 }

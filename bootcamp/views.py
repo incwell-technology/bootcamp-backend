@@ -7,6 +7,7 @@ from django.http import HttpResponseRedirect
 from bootcamp.common import register_user
 import re
 from django.db.models import Q
+from event import models as event_models
 
 
 def index(request):
@@ -271,3 +272,8 @@ def validate_scholarship(request):
     else:
         return True
         
+
+def events(request):
+    events = event_models.Event.objects.order_by('-date').all()
+
+    return render(request, "bootcamp/events.html", {'events':events})

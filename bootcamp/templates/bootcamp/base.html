@@ -15,10 +15,7 @@
     <title>Incwell Bootcamp</title>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139628199-1"></script>
-  
-  {% block script %}
 
-{% endblock script %}
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -26,12 +23,16 @@
 
     gtag('config', 'UA-139628199-1');
   </script>
+   
+  {% block script %}
+
+{% endblock script %}
     <link rel="stylesheet" href="{% static 'bootcamp/assets/style.css' %}" />
 
   <link rel="stylesheet" href="{% static 'bootcamp/assets/wow/animate.css' %}"/>
 
   <script src="{% static 'bootcamp/assets/wow/animate.js' %}"></script>
-
+ 
   <script>
     new WOW().init();
   </script>

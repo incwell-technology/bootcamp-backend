@@ -26,7 +26,7 @@ SECRET_KEY = "".join([random.choice("abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*','bootcamp.incwelltechnology.com', 'dev.bootcamp.incwelltechnology.com']
+ALLOWED_HOSTS = ['bootcamp.incwelltechnology.com', 'dev.bootcamp.incwelltechnology.com']
 
 
 # Application definition
@@ -61,7 +61,7 @@ ROOT_URLCONF = 'bootcampBackend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

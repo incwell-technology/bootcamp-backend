@@ -61,9 +61,9 @@
             <li data-target="#myCarousel" data-slide-to="0" class="active">
               All
             </li>
-            {% comment %} {% for category in categories %}
+            {% for category in categories %}
               <li data-target="#myCarousel" data-slide-to="{{forloop.counter}}">{{category}}</li>
-            {% endfor %} {% endcomment %}
+            {% endfor %}
           </ol>
 
           <!-- Wrapper for slides -->
@@ -75,7 +75,7 @@
                 <div class="mentor-grid-child">
                   <div class="mentor-image-container">
                     <img src="{% static mentor.image %}" data-toggle="modal"
-            data-target="#myModal{{forloop.counter}}"/>
+            data-target="#myModal{{mentor.id}}"/>
                   </div>
                   <div class="mentor-description">
                     <div class="mentor-description-name">{{mentor.firstName}} {{mentor.lastName}}</div>
@@ -112,7 +112,7 @@
                   </div>
                 </div>
 
-                <div id="myModal{{forloop.counter}}" class="modal fade" role="dialog">
+                <div id="myModal{{mentor.id}}" class="modal fade" role="dialog">
                     <div class="modal-dialog">
                       <!-- Modal content-->
                       <div class="modal-content">
@@ -181,8 +181,9 @@
               {% endfor %}
               </div>
             </div>
+            <!-- Comment Start-->
 
-            {% comment %} {% for category in categories %}
+            {% for category in categories %}
             <div class="item">
                       <div class="mentor-grid-display">
                 {% for mentor in mentors %}
@@ -191,7 +192,8 @@
 
                     <div class="mentor-grid-child">
                           <div class="mentor-image-container">
-                            <img src="{% static mentor.image %}" />
+                            <img src="{% static mentor.image %}"  data-toggle="modal"
+            data-target="#myModal{{mentor.id}}"/>
                           </div>
                           <div class="mentor-description">
                             <div class="mentor-description-name">{{mentor.firstName}} {{mentor.lastName}}</div>
@@ -227,12 +229,16 @@
                             </div>
                           </div>
                         </div>
+
+                        
                   {% endif %}
                      
                 {% endfor %}
                  </div>
                           </div>
-            {% endfor %} {% endcomment %}
+            {% endfor %}
+            <!-- Comment End-->
+
           </div>
           
         </div>
@@ -244,32 +250,29 @@
         <div class="blog-grid">
           <div class="blog-grid-child">
             <div class="blog-img-container">
-              <img>
+              <img src="{% static 'bootcamp/assets/kotlin.png' %}">
             </div>
             <div class="blog-text">
-              <div class="blog-text-up">Software Development Bootcamp
-              @Incwellbootcamp</div>
-              <div class="blog-text-down">UI and UX in the view of a beginner designer.</div>
+              <div class="blog-text-up">"Declaring variables in Kotlin"
+              </div>
             </div>
           </div>
           <div class="blog-grid-child">
             <div class="blog-img-container">
-              <img>
+              <img src="{% static 'bootcamp/assets/Mutable.png' %}">
             </div>
             <div class="blog-text">
-              <div class="blog-text-up">Software Development Bootcamp
-                @Incwellbootcamp</div>
-              <div class="blog-text-down">UI and UX in the view of a beginner designer.</div>
+              <div class="blog-text-up">"Mutable Vs. Immutable"
+                </div>
             </div>
           </div>
           <div class="blog-grid-child">
             <div class="blog-img-container">
-              <img>
+              <img src="{% static 'bootcamp/assets/Video.png' %}">
             </div>
             <div class="blog-text">
-              <div class="blog-text-up">Software Development Bootcamp
-                @Incwellbootcamp</div>
-              <div class="blog-text-down">UI and UX in the view of a beginner designer.</div>
+              <div class="blog-text-up">"Bootcamp Intro Video: Behind the Scenes"
+                </div>
             </div>
           </div>
         </div>

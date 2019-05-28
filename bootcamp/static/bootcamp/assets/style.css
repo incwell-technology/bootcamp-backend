@@ -800,7 +800,7 @@ input[type="text"]:not(.browser-default):focus:not([readonly]) {
 .blog-img-container img {
 }
 .blog-text {
-  height: 50%;
+  height: 20%;
   color: #fff;
   background: #0070bb;
 }
@@ -830,7 +830,7 @@ input[type="text"]:not(.browser-default):focus:not([readonly]) {
   height: 80%;
   background-image: linear-gradient(#e3e7e9, #e8f2f8);
   width: 100%;
-  /* background: #fff; */
+  background: #fff;
 }
 
 .aboutus-container {

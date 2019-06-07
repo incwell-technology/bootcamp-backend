@@ -147,7 +147,7 @@
   color: #0e5983;
 }
 .icon-medium {
-  vertical-align: bottom;
+  vertical-align: sub;
   color: #090706;
 }
 .icon-twitter {
@@ -166,8 +166,8 @@
 
 .grayish {
   height: 50%;
-  background: #e3e7e9;
-  width: 100%;
+    background: #f4f4f4;
+    width: 100%;
 }
 .not-grayish {
   height: 50%;
@@ -536,7 +536,7 @@ input[type="text"]:not(.browser-default):focus:not([readonly]) {
 .image-bg-mentors {
   height: 15%;
   top: 20%;
-  background: #e3e7e9;
+  background: transparent;
   width: 100%;
   margin: 0 auto;
   position: absolute;
@@ -711,7 +711,7 @@ input[type="text"]:not(.browser-default):focus:not([readonly]) {
   color: #fff;
 }
 .mentor-image-container {
-  height: 264px;
+  height: 263px;
   overflow: hidden;
 }
 .mentor-image-container img {
@@ -764,7 +764,6 @@ input[type="text"]:not(.browser-default):focus:not([readonly]) {
 }
 .item {
   padding: 5% 0;
-  height: 800px;
 }
 
 .white {
@@ -800,7 +799,7 @@ input[type="text"]:not(.browser-default):focus:not([readonly]) {
 .blog-img-container img {
 }
 .blog-text {
-  height: 50%;
+  height: 20%;
   color: #fff;
   background: #0070bb;
 }
@@ -828,11 +827,20 @@ input[type="text"]:not(.browser-default):focus:not([readonly]) {
 
 .whiter {
   height: 80%;
-  background-image: linear-gradient(#e3e7e9, #e8f2f8);
+  /* background-image: linear-gradient(#e3e7e9, #e8f2f8); */
   width: 100%;
-  /* background: #fff; */
+  background: #fff;
 }
-
+.whitemaker {
+  height: 60%;
+  /* background-image: linear-gradient(#e3e7e9, #e8f2f8); */
+  width: 100%;
+  
+}
+.body-maker{
+  /* background-color: #e8f2f8; */
+  background-color: #ffffff;
+}
 .aboutus-container {
   color: #fff;
   margin-top: 118px;
@@ -867,7 +875,7 @@ input[type="text"]:not(.browser-default):focus:not([readonly]) {
   text-transform: capitalize;
 }
 .aboutus-text-container {
-  width: 90%;
+  width: 100%;
   margin: 20px auto;
   word-wrap: break-word;
 }
@@ -884,12 +892,14 @@ input[type="text"]:not(.browser-default):focus:not([readonly]) {
   margin: 0 auto;
   width: fit-content;
   padding: 27.25px;
-  background: #81c7f3;
+  /* background: #81c7f3; */
   border-radius: 7px;
 }
 .aboutus-bts-child {
   max-height: 240px;
   overflow: hidden;
+  border-radius: 5px;
+    box-shadow: -4px 9px 10px 0px #a3a5a7;
 }
 .aboutus-bts-child img {
   width: 100%;
@@ -930,7 +940,7 @@ input[type="text"]:not(.browser-default):focus:not([readonly]) {
   overflow: hidden;
 }
 .team-img-container {
-  height: 200px;
+  height: 199px;
 
   overflow: hidden;
 }
@@ -947,8 +957,8 @@ input[type="text"]:not(.browser-default):focus:not([readonly]) {
 .team-desc-designation {
 }
 .aboutus-text-container-main {
-  background: #fff;
-  padding: 40px;
+  background: #e6edf1;
+  padding: 5px 40px;
   width: 1058px;
   margin: 0 auto;
   text-align: justify;
@@ -1104,13 +1114,30 @@ input[type="text"]:not(.browser-default):focus:not([readonly]) {
   background: #e7e7e77a;
 }
 
-.apply-scholarship
-{
-  width:100%;
+.apply-scholarship {
+  width: 100%;
   text-align: center;
-  margin-bottom:35px;
+  margin-bottom: 35px;
 }
 
-a:hover{
+a:hover {
   text-decoration: none;
+}
+
+@media only screen and (min-width: 1367px)
+{
+  .AboutUs-title {
+    padding-top: 40px;
+    text-align: center;
+    font-size: 24px;
+    color: #0071bb;
+    margin-top: 35%;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+}
+.grayish {
+  height: 35%;
+    background: #f4f4f4;
+    width: 100%;
+}
 }

@@ -20,11 +20,11 @@
     <link rel="stylesheet" href="{% static 'bootcamp/assets/style.css' %}" />
     <title>Incwell Bootcamp</title>
   </head>
-  <body>
+  <body class="body-maker">
     <div class="static-back">
       <div class="grayish"></div>
 
-      <div class="whiter"></div>
+      <div class="whitemaker"></div>
     </div>
     <div class="image-bg-mentors">
       <div class="bg-image-container">
@@ -66,9 +66,9 @@
         </div>
       </nav>
       <div class="aboutus-container">
-        
+        <div class="AboutUs-title">About Us</div>
       </div>
-      <div class="AboutUs-title">About Us</div>
+      
       <div class="aboutus-text-container-main">
         <div class="aboutus-text-container">
           <p>{{about_content.description|safe}}</p>
@@ -100,7 +100,7 @@
           <div class="team-grid">
             {% for team in teams %}
                 <div class="team-grid-child">
-                    <div class="team-img-container"><img src="{% static team.image ' %}" /></div>
+                    <div class="team-img-container"><img src="{% static team.image %}" /></div>
                     <div class="team-desc">
                         <div class="team-desc-name">{{team.firstName}} {{team.lastName}}</div>
                         <div class="team-desc-designation">{{ team.designation }}</div>

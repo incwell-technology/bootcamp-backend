@@ -51,6 +51,7 @@
           </div>
         </div>
       </div>
+      
       <div class="mentors-carousel">
         <div class="mentors-title">
           Mentors
@@ -61,58 +62,12 @@
             <li data-target="#myCarousel" data-slide-to="0" class="active">
               All
             </li>
-            {% comment %} {% for category in categories %}
+            {% for category in categories %}
               <li data-target="#myCarousel" data-slide-to="{{forloop.counter}}">{{category}}</li>
-            {% endfor %} {% endcomment %}
+            {% endfor %}
           </ol>
-
-          <!-- Wrapper for slides -->
-          <div class="carousel-inner">
-            <div class="item active">
-              <div class="mentor-grid-display">
-                
-              {% for mentor in mentors_all %}
-                <div class="mentor-grid-child">
-                  <div class="mentor-image-container">
-                    <img src="{% static mentor.image %}" data-toggle="modal"
-            data-target="#myModal{{forloop.counter}}"/>
-                  </div>
-                  <div class="mentor-description">
-                    <div class="mentor-description-name">{{mentor.firstName}} {{mentor.lastName}}</div>
-                    <div class="mentor-description-title">{{mentor.designation}}</div>
-                    <div class="social">
-                      <ul>
-                        <a href="https://www.facebook.com/{{mentor.facebook}}" target="_blank">
-                        <li class="social-main">
-                          <i class="fa fa-facebook icon-facebook"></i>
-                        </li>
-                        </a>
-                        <a href="https://www.medium.com/@{{mentor.medium}}" target="_blank">
-                          <li class="social-main">
-                            <span class="icon-medium" style="text-weight:bold;font-family:Times New Roman;">M</span>
-                          </li>
-                        </a>
-                        <a href="https://www.twitter/{{mentor.twitter}}" target="_blank">
-                          <li class="social-main">
-                            <i class="fa fa-twitter icon-twitter"></i>
-                          </li>
-                        </a>
-                        <a href="https://www.linkedin.com/{{mentor.linkedIn}}" target="_blank">
-                          <li class="social-main">
-                            <i class="fa fa-linkedin icon-linkedin"></i>
-                          </li>
-                        </a>
-                        <a href="https://github.com/{{mentor.github}}" target="_blank">
-                          <li class="social-main">
-                            <i class="fa fa-github icon-github"></i>
-                          </li>
-                        </a>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                <div id="myModal{{forloop.counter}}" class="modal fade" role="dialog">
+          {% for mentor in mentors_all %}
+                <div id="myModal{{mentor.id}}" class="modal fade" role="dialog">
                     <div class="modal-dialog">
                       <!-- Modal content-->
                       <div class="modal-content">
@@ -177,12 +132,63 @@
                         </div>
                       </div>
                     </div>
-        </div>
+                </div>
+              {% endfor %}
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner-wrapper">
+          <div class="carousel-inner">
+            <div class="item active">
+              <div class="mentor-grid-display">
+              
+                
+              {% for mentor in mentors_all %}
+                <div class="mentor-grid-child">
+                  <div class="mentor-image-container">
+                    <img src="{% static mentor.image %}" data-toggle="modal"
+            data-target="#myModal{{mentor.id}}"/>
+                  </div>
+                  <div class="mentor-description">
+                    <div class="mentor-description-name">{{mentor.firstName}} {{mentor.lastName}}</div>
+                    <div class="mentor-description-title">{{mentor.designation}}</div>
+                    <div class="social">
+                      <ul>
+                        <a href="https://www.facebook.com/{{mentor.facebook}}" target="_blank">
+                        <li class="social-main">
+                          <i class="fa fa-facebook icon-facebook"></i>
+                        </li>
+                        </a>
+                        <a href="https://www.medium.com/@{{mentor.medium}}" target="_blank">
+                          <li class="social-main">
+                            <span class="icon-medium" style="text-weight:bold;font-family:Times New Roman;">M</span>
+                          </li>
+                        </a>
+                        <a href="https://www.twitter/{{mentor.twitter}}" target="_blank">
+                          <li class="social-main">
+                            <i class="fa fa-twitter icon-twitter"></i>
+                          </li>
+                        </a>
+                        <a href="https://www.linkedin.com/{{mentor.linkedIn}}" target="_blank">
+                          <li class="social-main">
+                            <i class="fa fa-linkedin icon-linkedin"></i>
+                          </li>
+                        </a>
+                        <a href="https://github.com/{{mentor.github}}" target="_blank">
+                          <li class="social-main">
+                            <i class="fa fa-github icon-github"></i>
+                          </li>
+                        </a>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                
               {% endfor %}
               </div>
             </div>
+            <!-- Comment Start-->
 
-            {% comment %} {% for category in categories %}
+            {% for category in categories %}
             <div class="item">
                       <div class="mentor-grid-display">
                 {% for mentor in mentors %}
@@ -191,7 +197,8 @@
 
                     <div class="mentor-grid-child">
                           <div class="mentor-image-container">
-                            <img src="{% static mentor.image %}" />
+                            <img src="{% static mentor.image %}"  data-toggle="modal"
+            data-target="#myModal{{mentor.id}}"/>
                           </div>
                           <div class="mentor-description">
                             <div class="mentor-description-name">{{mentor.firstName}} {{mentor.lastName}}</div>
@@ -227,51 +234,59 @@
                             </div>
                           </div>
                         </div>
+
+                        
                   {% endif %}
-                     
+                    
                 {% endfor %}
-                 </div>
+                </div>
                           </div>
-            {% endfor %} {% endcomment %}
+            {% endfor %}
+            <!-- Comment End-->
+
           </div>
-          
+          </div>
         </div>
       </div>
+      
       <div class="blog-container">
         <div class="blog-title">
           Read our mentors' published articles on Medium
         </div>
         <div class="blog-grid">
+          <a href="https://medium.com/incwell-bootcamp/declaring-variables-in-kotlin-64d6261144ae" target="_blank">
           <div class="blog-grid-child">
             <div class="blog-img-container">
-              <img>
+              <img src="{% static 'bootcamp/assets/kotlin.png' %}">
             </div>
             <div class="blog-text">
-              <div class="blog-text-up">Software Development Bootcamp
-              @Incwellbootcamp</div>
-              <div class="blog-text-down">UI and UX in the view of a beginner designer.</div>
+              <div class="blog-text-up">"Declaring variables in Kotlin"
+              </div>
             </div>
           </div>
+          </a>
+          <a href="https://medium.com/incwell-bootcamp/mutable-vs-immutable-ff86845f5879" target="_blank">
           <div class="blog-grid-child">
             <div class="blog-img-container">
-              <img>
+              <img src="{% static 'bootcamp/assets/Mutable.png' %}">
             </div>
             <div class="blog-text">
-              <div class="blog-text-up">Software Development Bootcamp
-                @Incwellbootcamp</div>
-              <div class="blog-text-down">UI and UX in the view of a beginner designer.</div>
+              <div class="blog-text-up">"Mutable Vs. Immutable"
+                </div>
             </div>
           </div>
+          </a>
+          <a href="https://medium.com/incwell-bootcamp/how-we-made-the-intro-video-for-bootcamp-96569e746c20" target="_blank">
           <div class="blog-grid-child">
             <div class="blog-img-container">
-              <img>
+              <img src="{% static 'bootcamp/assets/Video.png' %}">
             </div>
             <div class="blog-text">
-              <div class="blog-text-up">Software Development Bootcamp
-                @Incwellbootcamp</div>
-              <div class="blog-text-down">UI and UX in the view of a beginner designer.</div>
+              <div class="blog-text-up">"Bootcamp Intro Video: Behind the Scenes"
+                </div>
             </div>
           </div>
+          </a>
         </div>
       </div>
 {% endblock content %}

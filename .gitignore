@@ -124,3 +124,4 @@ daemon-services/
 venv
 secrets.key
 !**/migrations/__init__.py
+v

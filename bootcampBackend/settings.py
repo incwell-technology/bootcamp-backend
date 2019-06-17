@@ -26,12 +26,13 @@ SECRET_KEY = "".join([random.choice("abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*','bootcamp.incwelltechnology.com', 'dev.bootcamp.incwelltechnology.com']
+ALLOWED_HOSTS = ['bootcamp.incwelltechnology.com', 'dev.bootcamp.incwelltechnology.com']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'bootcamp',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,7 +43,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'syllabus',
     'visitor',
-    'bootcamp',
     'event'
 ]
 

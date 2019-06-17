@@ -69,6 +69,9 @@
               <a href="{% url 'mentors' %}" class="navlink {% if request.path == '/mentors' %} nav-active {% endif %}"> Mentors</a>
             </li>
             <li class="navlist">
+              <a href="{% url 'events' %}" class="navlink {% if request.path == '/events' %} nav-active {% endif %}"> Events</a>
+            </li>
+            <li class="navlist">
               <a href="{% url 'contact' %}" class="navlink {% if request.path == '/contact' %} nav-active {% endif %}">Contact</a>
             </li>
             <li class="unset-nav">
@@ -80,7 +83,9 @@
     {% block content %}
 
     {% endblock content %}
+    {% block events-script %}
     
+    {% endblock events-script %}
     </div>
    </body>
 </html>

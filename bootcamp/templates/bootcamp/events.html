@@ -1,5 +1,106 @@
 {% extends "bootcamp/base.html" %}
+{% load static %}
+{% load month_number %}
+
+
+{% block events-script %}
+
+<script>
+
+    starter =  () => {
+
+        var topImageHolder = document.getElementsByClassName("events-top-image-holder");
+        var topContainer = document.getElementsByClassName("events-top-image");
+        var mainEvent = document.getElementsByClassName("events-main-event-holder")[0];
+        var mainEventImage = document.getElementsByClassName("events-main-event-image-container")[0];
+        var circle = document.getElementsByClassName("circle-date-container");
+        var height = topImageHolder[0].clientHeight;
+        topImageHolder[0].style.height = (height - 100) + "px";
+        topImageHolder[0].style.overflow = "hidden";
+        topContainer[0].style.height = (height - 50) + "px";
+        topContainer[0].style.overflow = "hidden";
+        mainEvent.style.height = (height - 100) + "px";
+        mainEvent.style.overflow = "hidden";
+        mainEventImage.style.height = (height - 100) + "px";
+        mainEventImage.style.overflow = "hidden";
+        var a = document.getElementById("aa").clientHeight;
+        var content = document.getElementsByClassName("events-grid-content-container");
+        for (i = 0; i < circle.length; i++) {
+            circle[i].style.height = circle[i].clientWidth + "px";
+            circle[i].style.borderRadius = "50%";
+            circle[i].style.top = (a - circle[i].clientWidth / 2) + "px";
+            circle[i].style.left = "20px";
+            content[i].style.paddingTop = (circle[i].clientWidth / 2 + 10) + "px";
+        }
+        // var grid = document.getElementsByClassName("events-grid-container");
+        // grid.style.gridRowGap= grid.
+        // console.log(document.getElementsByClassName("events-grid-child"));
+
+    }
+
+    $(document).ready( async ()=>{
+    await    starter();
+
+    })
+</script>
+
+{% endblock events-script %}
 
 {% block content %}
-    {{events}}
+    
+        <div class="events-all-container">
+            <div class="events-top-image">
+                <div class="events-top-image-holder">
+                    <img class="events-top-image-main" src="{% static 'bootcamp/assets/top-events.png' %}">
+                </div>
+                <div class="events-top-content-holder">
+                    <div class="events-top-content1">Upcomming Events</div>
+                    <div class="events-top-content2">LATEST ADDED EVENTS</div>                
+                </div>
+            </div>
+            {% if main_events %}
+                <div class="events-main-event-holder">
+                <div class="events-main-event-image-container"><img class="events-main-event-image"
+                        src="{% static main_events.image %}">
+                </div>
+                <div class="events-main-event-content-main-container">
+                    <div class="events-main-event-content-top-container">
+                        <div class="events-main-event-content-title">{{main_events.title}}</div>
+                        <div class="events-main-event-content-content">{{main_events.description | linebreaks}}</div>
+                    </div>
+                    <div class="events-main-event-content-bottom-container">
+                        <div class="events-main-event-content-date"><i class="fa fa-calendar fo-aw"></i>{{main_events.date}}
+                        </div>
+                        <div class="events-main-event-content-location"><i
+                                class="fa fa-map-marker fo-aw"></i>{{main_events.venue}}</div>
+                        <div class="events-main-event-content-time"><i class="fa fa-clock-o fo-aw"></i>{{main_events.from_time}} - {{main_events.to_time}}
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            <div class="events-grid-container">
+                {% for data in events %}
+                    
+                    <div class="events-grid-child">
+                        <div class="circle-date-container">
+                            <div class="circle-date-top">{{data.date|date:"M"}}</div>
+                            <div class="circle-date-bottom">{{data.date.day}}, {{data.date.year}}</div>
+                        </div>
+                        <div class="events-grid-image-container"><img id="aa" src="{% static data.image %}"></div>
+                        <div class="events-grid-content-container">
+                            <div class="events-grid-content1"><b>{{data.title}}</b></div>
+                            <div class="events-grid-content2">{{data.description|linebreaks}}</div>
+                            <div class="events-grid-content3"><i class="fa fa-map-marker fo-aw"></i>{{data.venue}}
+                            </div>
+                            <div class="events-grid-content4"><i class="fa fa-clock-o fo-aw"></i>{{data.from_time}} - {{data.to_time}}</div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="events-last">
+                <button class="events-last-button navlink-Enroll">All Events</button>
+            </div>
+        </div>
 {% endblock content %}

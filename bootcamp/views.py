@@ -275,5 +275,46 @@ def validate_scholarship(request):
 
 def events(request):
     events = event_models.Event.objects.order_by('-date').all()
+    main_events = event_models.Main_Event.objects.all()
+    context = {}
+    events_list = []
+    main_events_list = []
+    image_url = ""
+    for data in events:
+        try:
+            image_url = data.image.url.split('/static/')[1]
+        except Exception as e:
+            pass
+        
+        events_list.append({
+            'title':data.title,
+            'venue':data.venue,
+            'description':data.description,
+            'image':image_url,
+            'date': data.date,
+            'from_time':data.from_time,
+            'to_time':data.to_time
+        })
 
-    return render(request, "bootcamp/events.html", {'events':events})
+    context.update({'events':events_list})
+    image_url = ""
+
+    for data in main_events:
+        try:
+            image_url = data.image.url.split('/static/')[1]
+        except Exception as e:
+            pass
+        main_events_list.append({
+            'title':data.title,
+            'venue':data.venue,
+            'description':data.description,
+            'image':image_url,
+            'date': data.date,
+            'from_time':data.from_time,
+            'to_time':data.to_time
+        })
+    if main_events_list:
+        context.update({'main_events':main_events_list[0]})
+    
+    return render(request, "bootcamp/events.html", context=context)
+

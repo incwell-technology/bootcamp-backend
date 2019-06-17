@@ -116,7 +116,6 @@ venv/
 credentials.yaml
 credentials.yml
 .mypy_cache/
-migrations
 syllabus/static/syllabus/site-data
 bootcamp/static/bootcamp/site-data
 .vscode

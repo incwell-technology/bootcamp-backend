@@ -34,6 +34,7 @@ ALLOWED_HOSTS = ['bootcamp.incwelltechnology.com',
 # Application definition
 
 INSTALLED_APPS = [
+    'bootcamp',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,7 +45,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'syllabus',
     'visitor',
-    'bootcamp',
     'event'
 ]
 

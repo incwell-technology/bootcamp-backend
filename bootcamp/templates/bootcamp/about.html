@@ -1,82 +1,134 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="icon" href="{% static 'bootcamp/assets/logo.ico' %}">
 
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
-    />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <link rel="stylesheet" href="{% static 'bootcamp/assets/style.css' %}" />
-    <title>Incwell Bootcamp</title>
-  </head>
-  <body class="body-maker">
-    <div class="static-back">
-      <div class="grayish"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="icon" href="{% static 'bootcamp/assets/logo.ico' %}">
 
-      <div class="whitemaker"></div>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="{% static 'bootcamp/assets/style.css' %}" />
+  <link rel="stylesheet" href="{% static 'bootcamp/assets/style-min.css' %}" />
+  <title>Incwell Bootcamp</title>
+</head>
+
+<body class="body-maker">
+  <div class="w3-sidebar w3-bar-block w3-card w3-animate-right"
+    style="display:none;right:0;z-index:11;width:100%;background:none;box-shadow:none" id="rightMenu">
+    <div style="width:50%;float:left;height:100%;" onclick="closeRightMenu()">
     </div>
-    <div class="image-bg-mentors">
-      <div class="bg-image-container">
-        <img src="{% static 'bootcamp/assets/bkg-mentors.png' %}" class="bkg-image" />
-        
-      </div>
-      <div class="aboutus-top-text">We Prepare you for your careers</div>
-        <div class="aboutus-down-text">
-          Incwell Bootcamp seeks to make your skills job ready through mentor-led
-          courses with 24/7 support
+    <div
+      style="width:50%;float:right;height:100%;background:#fff;box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);">
+      <button onclick="closeRightMenu()" class="w3-bar-item w3-button w3-large">&times;</button>
+      {% comment %} <a href="#" class="w3-bar-item w3-button">Link 1</a>
+      <a href="#" class="w3-bar-item w3-button">Link 2</a>
+      <a href="#" class="w3-bar-item w3-button">Link 3</a> {% endcomment %}
+      <ul class="nav navbar-nav navbar-right" style="padding:0 25px">
+        <li class="navlist">
+          <a href="{% url 'about' %}" class="navlink {% if request.path == '/about' %} nav-active {% endif %}">
+            About Us</a>
+        </li>
+        <li class="navlist">
+          <a href="{% url 'courses' %}"
+            class="navlink {% if request.path == '/courses' %} nav-active {% endif %}">Courses</a>
+        </li>
+        <li class="navlist">
+          <a href="{% url 'mentors' %}" class="navlink {% if request.path == '/mentors' %} nav-active {% endif %}">
+            Mentors</a>
+        </li>
+        <li class="navlist">
+          <a href="{% url 'events' %}" class="navlink {% if request.path == '/events' %} nav-active {% endif %}">
+            Events</a>
+        </li>
+        <li class="navlist">
+          <a href="{% url 'contact' %}"
+            class="navlink {% if request.path == '/contact' %} nav-active {% endif %}">Contact</a>
+        </li>
+        <li class="unset-nav">
+          <a href="{% url 'enroll' %}" class="navlink-Enroll"> Enroll</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="static-back">
+    <div class="grayish"></div>
+
+    <div class="whitemaker"></div>
+  </div>
+
+  <div class="body-container mentor-main">
+    <nav class="navbar navibar">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" onclick="openRightMenu()">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/"><img src="{% static 'bootcamp/assets/Bootcamp (1).png' %}"
+              class="logo" /></a>
         </div>
-    </div>
-    <div class="body-container mentor-main">
-      <nav class="navbar navibar">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="/"
-              ><img src="{% static 'bootcamp/assets/Bootcamp (1).png' %}" class="logo"
-            /></a>
-          </div>
-
+        <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav navbar-right">
             <li class="navlist">
-              <a href="{% url 'about' %}" class="navlink {% if request.path == '/about' %} nav-active {% endif %}"> About Us</a>
+              <a href="{% url 'about' %}" class="navlink {% if request.path == '/about' %} nav-active {% endif %}">
+                About Us</a>
             </li>
             <li class="navlist">
-              <a href="{% url 'courses' %}" class="navlink {% if request.path == '/courses' %} nav-active {% endif %}">Courses</a>
+              <a href="{% url 'courses' %}"
+                class="navlink {% if request.path == '/courses' %} nav-active {% endif %}">Courses</a>
             </li>
             <li class="navlist">
-              <a href="{% url 'mentors' %}" class="navlink {% if request.path == '/mentors' %} nav-active {% endif %}"> Mentors</a>
+              <a href="{% url 'mentors' %}" class="navlink {% if request.path == '/mentors' %} nav-active {% endif %}">
+                Mentors</a>
             </li>
             <li class="navlist">
-              <a href="{% url 'contact' %}" class="navlink {% if request.path == '/contact' %} nav-active {% endif %}">Contact</a>
+              <a href="{% url 'events' %}" class="navlink {% if request.path == '/events' %} nav-active {% endif %}">
+                Events</a>
+            </li>
+            <li class="navlist">
+              <a href="{% url 'contact' %}"
+                class="navlink {% if request.path == '/contact' %} nav-active {% endif %}">Contact</a>
             </li>
             <li class="unset-nav">
               <a href="{% url 'enroll' %}" class="navlink-Enroll"> Enroll</a>
             </li>
           </ul>
         </div>
-      </nav>
-      <div class="aboutus-container">
-        <div class="AboutUs-title">About Us</div>
       </div>
-      
-      <div class="aboutus-text-container-main">
-        <div class="aboutus-text-container">
-          <p>{{about_content.description|safe}}</p>
+    </nav>
+    <div class="image-bg-aboutus">
+      <div class="bg-image-container">
+        <img src="{% static 'bootcamp/assets/bkg-mentors.png' %}" class="bkg-image" />
+
+      </div>
+      <div class="top-text-container">
+        <div class="aboutus-top-text1">We Prepare you for your careers</div>
+        <div class="aboutus-down-text">
+
+          Incwell Bootcamp seeks to make your skills job ready through mentor-led
+          courses with 24/7 support
         </div>
       </div>
-      <div class="aboutus-grids-container">
-        <div class="AboutUs-titles">Behind The Scenes:Bootcamp</div>
-        <div class="aboutus-bts-grid-container">
+    </div>
+    <div class="aboutus-container">
+      <div class="AboutUs-title1">About Us</div>
+    </div>
+
+    <div class="aboutus-text-container-main">
+      <div class="aboutus-text-container">
+        <p>{{about_content.description|safe}}</p>
+      </div>
+    </div>
+    <div class="aboutus-grids-container">
+      <div class="AboutUs-titles">Behind The Scenes:Bootcamp</div>
+      <div class="aboutus-bts-grid-container">
         <div class="aboutus-bts-grid">
           <div class="aboutus-bts-child">
             <img src="{% static 'bootcamp/assets/behindthescene.jpg' %}" />
@@ -91,25 +143,65 @@
             <img src="{% static 'bootcamp/assets/behindthescene3.jpeg' %}" />
           </div>
         </div>
-        </div>
-        <div class="seemore-div">
-          <button class="Seemore">See More on Instagram</button>
-        </div>
-        <div class="team">
-          <div class="AboutUs-titles">Meet The Team</div>
-          <div class="team-grid">
-            {% for team in teams %}
-                <div class="team-grid-child">
-                    <div class="team-img-container"><img src="{% static team.image %}" /></div>
-                    <div class="team-desc">
-                        <div class="team-desc-name">{{team.firstName}} {{team.lastName}}</div>
-                        <div class="team-desc-designation">{{ team.designation }}</div>
-                    </div>
-                    </div>  
-            {% endfor %}
+      </div>
+      <div class="seemore-div">
+        <button class="Seemore">See More on Instagram</button>
+      </div>
+      <div class="team">
+        <div class="AboutUs-titles">Meet The Team</div>
+        <div class="team-grid">
+          {% for team in teams %}
+          <div class="team-grid-child">
+            <div class="team-img-container"><img src="{% static team.image %}" /></div>
+            <div class="team-desc">
+              <div class="team-desc-name">{{team.firstName}} {{team.lastName}}</div>
+              <div class="team-desc-designation">{{ team.designation }}</div>
+            </div>
           </div>
+          {% endfor %}
         </div>
       </div>
     </div>
-  </body>
+  </div>
+  <script>
+    function openRightMenu() {
+      document.getElementById("rightMenu").style.width = "100%";
+      document.getElementById("rightMenu").style.display = "block";
+    }
+
+    function closeRightMenu() {
+      document.getElementById("rightMenu").style.transition = "all 0.4s";
+      document.getElementById("rightMenu").style.width = "0px";
+      setTimeout(() => {
+        document.getElementById("rightMenu").style.display = "none";
+      }, 400);
+
+
+    }
+    function loader() {
+      var topImageContainer = document.getElementsByClassName("image-bg-aboutus")[0];
+      var image = document.getElementsByClassName("bg-image-container")[0];
+      var imageHeight = image.clientHeight;
+      var topText = document.getElementsByClassName("top-text-container")[0];
+      var textHeight = topText.clientHeight;
+      topImageContainer.style.height = image.clientHeight + "px";
+      topText.style.paddingTop = (imageHeight / 2 - textHeight / 2) + "px";
+      console.log(topImageContainer.clientHeight);
+      console.log(image.clientHeight);
+      var teamImgCont = document.getElementsByClassName("team-img-container");
+      for (var i = 0; i < teamImgCont.length; i++) {
+        console.log(teamImgCont[i].style.height);
+        console.log(teamImgCont[i].clientWidth);
+        teamImgCont[i].style.height = (teamImgCont[i].clientWidth - 1) + "px";
+      }
+    }
+
+
+    $(document).ready(async () => {
+      await loader();
+
+    })
+  </script>
+</body>
+
 </html>

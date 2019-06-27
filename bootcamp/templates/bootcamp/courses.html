@@ -5,22 +5,45 @@
 class="body-maker"
 {% endblock course-container %}
 
-{% block courses %}
+{% block courses1 %}
 <div class="static-back">
     <div class="grayish"></div>
     <div class="whitemaker"></div>
 </div>
-<div class="image-bg-mentors">
+
+{% endblock courses1 %}
+{% block courses2 %}
+    
+    <div class="image-bg-aboutus">
       <div class="bg-image-container">
         <img src="{% static 'bootcamp/assets/bkg-mentors.png' %}" class="bkg-image" />
+
       </div>
-      <div class="aboutus-top-text">Select From our Various Courses</div>
-      <div class="aboutus-down-text">
-      If you are unsure about what to study you can talk to our advisors at any time at your convinience.
-        
+      <div class="top-text-container">
+        <div class="aboutus-top-text1">Select From our Various Courses</div>
+        <div class="aboutus-down-text">
+
+          If you are unsure about what to study you can talk to our advisors at any time at your convinience.
+        </div>
       </div>
     </div>
-{% endblock courses %}
+    <script>
+    function loader() {
+      var topImageContainer = document.getElementsByClassName("image-bg-aboutus")[0];
+      var image = document.getElementsByClassName("bg-image-container")[0];
+      var imageHeight = image.clientHeight;
+      var topText = document.getElementsByClassName("top-text-container")[0];
+      var textHeight = topText.clientHeight;
+      topImageContainer.style.height = image.clientHeight + "px";
+      topText.style.paddingTop = (imageHeight / 2 - textHeight / 2) + "px";
+      
+    }
+     $(document).ready(async () => {
+      await loader();
+
+    })
+  </script>
+{% endblock courses2 %}
 
 {% block content %}
 <div class="AboutUs-title">Courses</div>
@@ -40,7 +63,7 @@ class="body-maker"
                             </ul>
                             <ul>
                                 <li>Start Time: {{course.start_time}}</li>
-                                <br/>
+                                
                                 <li>End Time: {{course.end_time}}</li>
                             </ul>
                             <div class="readmore"><i class="fa fa-angle-down"></i></div>

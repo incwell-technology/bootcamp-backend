@@ -3,18 +3,35 @@
 
 {% block index %}
 <div class="background-img">
-    <img src="{% static 'bootcamp/assets/newcorner.svg' %}" class="back-img" />
+  <img src="{% static 'bootcamp/assets/newcorner.svg' %}" class="back-img" />
 </div>
 {% endblock index %}
 
 {% block content %}
- <div class="main">
-        <div class="chart-container">
-          <img src="{% static 'bootcamp/assets/CHARCTER.svg' %}" class="character" />
-        </div>
-        <div class="main-text">
-          start your career path
-          <a href="{% url 'courses' %}"><button class="wow fadeInLeft explore-button">Explore Now</button></a>
-        </div>
-      </div>
+<div class="main">
+  <div class="chart-container">
+    <img src="{% static 'bootcamp/assets/CHARCTER.svg' %}" class="character" />
+  </div>
+  <div class="main-text">
+    start your career path
+    <a href="{% url 'courses' %}"><button class="wow fadeInLeft explore-button">Explore Now</button></a>
+  </div>
+</div>
+<script>
+  function starter() {
+    var chartCont = document.getElementsByClassName("chart-container")[0];
+    var height = document.getElementsByClassName("character")[0].clientHeight;
+    if (screen.width > 600) {
+      chartCont.style.height = (height - 65) + "px";
+    }
+    else {
+      chartCont.style.height = height + "px";
+    }
+  }
+
+  $(document).ready(async () => {
+    await starter();
+
+  })
+</script>
 {% endblock content %}

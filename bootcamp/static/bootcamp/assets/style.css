@@ -2,6 +2,12 @@
   width: 1100px;
   margin: 0 auto;
 }
+.container-fluid {
+    padding-right: unset;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
 .navbar {
   height: 100px;
   padding-top: 50px;
@@ -136,26 +142,26 @@
   background-color: #fff;
 }
 .icon {
-  vertical-align: -webkit-baseline-middle;
+  vertical-align: sub;
 }
 .icon-facebook {
-  vertical-align: bottom;
+  vertical-align:  -webkit-baseline-middle;
   color: #3b5998;
 }
 .icon-linkedin {
-  vertical-align: bottom;
+  vertical-align:  -webkit-baseline-middle;
   color: #0e5983;
 }
 .icon-medium {
-  vertical-align: sub;
+  vertical-align:  -webkit-baseline-middle;
   color: #090706;
 }
 .icon-twitter {
-  vertical-align: bottom;
+  vertical-align:  -webkit-baseline-middle;
   color: #50abf1;
 }
 .icon-github {
-  vertical-align: bottom;
+  vertical-align:  -webkit-baseline-middle;
   color: #000000;
 }
 .static-back {
@@ -254,6 +260,7 @@
 
 .navibar {
   margin-bottom: 0;
+  height: fit-content;
 }
 .modal-dialog {
   width: 80%;
@@ -533,15 +540,25 @@ input[type="text"]:not(.browser-default):focus:not([readonly]) {
 }
 
 /* label color */
+.image-bg-aboutus {
+    /* height: 15%; */
+    /* top: 20%; */
+    background: transparent;
+    width: 100%;
+    margin: 0px auto;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
 .image-bg-mentors {
-  height: 15%;
-  top: 20%;
-  background: transparent;
-  width: 100%;
-  margin: 0 auto;
-  position: absolute;
-  z-index: 1;
-  text-align: center;
+    height: 15%;
+    top: 20%;
+    background: transparent;
+    width: 100%;
+    margin: 0 auto;
+    position: absolute;
+    z-index: 1;
+    text-align: center;
 }
 
 .bkg-image {
@@ -558,9 +575,11 @@ input[type="text"]:not(.browser-default):focus:not([readonly]) {
 }
 
 .mentors-showcase {
-  margin-top: 11%;
-  color: #fff;
-  text-align: center;
+    margin-top: 8%;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    z-index: 10;
 }
 .showcase-text {
 }
@@ -721,6 +740,7 @@ input[type="text"]:not(.browser-default):focus:not([readonly]) {
   background: #7ec4fd;
   text-align: center;
   height: 25%;
+  line-height: 15px;
 }
 .mentor-description-name {
 }
@@ -824,7 +844,10 @@ input[type="text"]:not(.browser-default):focus:not([readonly]) {
 .modal-backdrop {
   z-index: unset;
 }
+.navbar-brand{
+  height: fit-content;
 
+}
 .whiter {
   height: 80%;
   /* background-image: linear-gradient(#e3e7e9, #e8f2f8); */
@@ -842,15 +865,21 @@ input[type="text"]:not(.browser-default):focus:not([readonly]) {
   background-color: #ffffff;
 }
 .aboutus-container {
-  color: #fff;
-  margin-top: 118px;
-  text-align: center;
+    color: #fff;
+    /* margin-top: 118px; */
+    text-align: center;
+}
+.aboutus-top-text1 {
+    margin-top: 1px;
+    font-size: 42px;
+    position: relative;
+    color: #fff;
 }
 .aboutus-top-text {
-  margin-top: 100px;
-  font-size: 42px;
-  position: relative;
-  color: #fff;
+    margin-top: 100px;
+    font-size: 42px;
+    position: relative;
+    color: #fff;
 }
 .aboutus-down-text {
   font-size: 18px;
@@ -859,13 +888,22 @@ input[type="text"]:not(.browser-default):focus:not([readonly]) {
   color: #fff;
 }
 .AboutUs-title {
-  padding-top: 100px;
-  text-align: center;
-  font-size: 24px;
-  color: #0071bb;
-  margin-top: 225px;
-  text-transform: capitalize;
-  margin-bottom: 20px;
+    padding-top: 0px;
+    text-align: center;
+    font-size: 24px;
+    color: #0071bb;
+    margin-top: unset;
+    text-transform: capitalize;
+    margin: 20px;
+}
+.AboutUs-title1 {
+    /* padding-top: 100px; */
+    text-align: center;
+    font-size: 24px;
+    color: #0071bb;
+    /* margin-top: 225px; */
+    text-transform: capitalize;
+    margin: 20px;
 }
 .AboutUs-titles {
   margin: 20px 0;
@@ -921,6 +959,7 @@ input[type="text"]:not(.browser-default):focus:not([readonly]) {
 
   box-sizing: unset; */
 }
+
 .team {
   text-align: center;
 }
@@ -1208,6 +1247,7 @@ a:hover {
 .events-grid-child{
   position: relative;
   overflow: hidden;
+      height: fit-content;
     border-radius: 10px;
 }
 .events-grid-child:hover{
@@ -1267,11 +1307,11 @@ a:hover {
 @media only screen and (min-width: 1367px)
 {
   .AboutUs-title {
-    padding-top: 40px;
+    
     text-align: center;
     font-size: 24px;
     color: #0071bb;
-    margin-top: 35%;
+   
     text-transform: capitalize;
     margin-bottom: 20px;
 }

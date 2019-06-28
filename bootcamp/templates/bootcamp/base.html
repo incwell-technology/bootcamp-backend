@@ -15,10 +15,7 @@
     <title>Incwell Bootcamp</title>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139628199-1"></script>
-  
-  {% block script %}
 
-{% endblock script %}
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -26,12 +23,16 @@
 
     gtag('config', 'UA-139628199-1');
   </script>
+   
+  {% block script %}
+
+{% endblock script %}
     <link rel="stylesheet" href="{% static 'bootcamp/assets/style.css' %}" />
 
   <link rel="stylesheet" href="{% static 'bootcamp/assets/wow/animate.css' %}"/>
 
   <script src="{% static 'bootcamp/assets/wow/animate.js' %}"></script>
-
+ 
   <script>
     new WOW().init();
   </script>
@@ -68,10 +69,10 @@
               <a href="{% url 'mentors' %}" class="navlink {% if request.path == '/mentors' %} nav-active {% endif %}"> Mentors</a>
             </li>
             <li class="navlist">
-              <a href="{% url 'contact' %}" class="navlink {% if request.path == '/contact' %} nav-active {% endif %}">Contact</a>
+              <a href="{% url 'events' %}" class="navlink {% if request.path == '/events' %} nav-active {% endif %}"> Events</a>
             </li>
             <li class="navlist">
-              <a href="{% url 'scholarship' %}" class="navlink {% if request.path == '/scholarship' %} nav-active {% endif %}">Scholarship</a>
+              <a href="{% url 'contact' %}" class="navlink {% if request.path == '/contact' %} nav-active {% endif %}">Contact</a>
             </li>
             <li class="unset-nav">
               <a href="{% url 'enroll' %}" class="navlink-Enroll"> Enroll</a>
@@ -82,7 +83,9 @@
     {% block content %}
 
     {% endblock content %}
+    {% block events-script %}
     
+    {% endblock events-script %}
     </div>
    </body>
 </html>

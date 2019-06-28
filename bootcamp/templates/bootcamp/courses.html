@@ -2,13 +2,13 @@
 {% load static %}
 
 {% block course-container %}
-class="background-changer"
+class="body-maker"
 {% endblock course-container %}
 
 {% block courses %}
 <div class="static-back">
     <div class="grayish"></div>
-    <div class="whiter"></div>
+    <div class="whitemaker"></div>
 </div>
 <div class="image-bg-mentors">
       <div class="bg-image-container">
@@ -23,7 +23,7 @@ class="background-changer"
 {% endblock courses %}
 
 {% block content %}
-<div class="title-courses">Courses</div>
+<div class="AboutUs-title">Courses</div>
     <div class="grid-maker-course">
         {% for course in courses %}
             <div class="box-courses">
@@ -53,5 +53,9 @@ class="background-changer"
                 </div>
             </div>
         {% endfor %}
+     
+    </div>
+    <div class="apply-scholarship">
+        <a href="{% url 'scholarship' %}" class="btn btn-primary btn-lg">Apply For Scholarship</a>
     </div>
 {% endblock content %}

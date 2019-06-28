@@ -27,7 +27,7 @@ SECRET_KEY = "".join([random.choice(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['bootcamp.incwelltechnology.com',
+ALLOWED_HOSTS = ['*', 'bootcamp.incwelltechnology.com',
                  'dev.bootcamp.incwelltechnology.com']
 
 

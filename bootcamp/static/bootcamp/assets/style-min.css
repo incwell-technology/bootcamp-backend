@@ -1,0 +1,494 @@
+@media only screen and (max-width: 600px){
+    .unset-nav:hover {
+    width: fit-content;
+    background: #eb596b;
+    color: #fff;
+    border-radius: 25px;
+    padding-left: 0px;
+        margin-left: 10px;
+}
+    .submit-button {
+    
+    padding: 8px 15px;
+    font-size: 16px;
+    }
+    .navbar {
+    height: 100px;
+    padding-top: 30px;
+    }
+    .image-bg-mentors{
+        width: 100%;
+    }
+    .bg-image-container {
+    width: 100%;
+    }
+    .bkg-image {
+    
+        width: 100%;
+    opacity: 0.5;
+    }
+    .body-container {
+    width: 95%;
+    }
+   .aboutus-text-container-main {
+       width: 93%;
+    background: #e6edf1;
+    padding: 5px 20px;
+    }
+    .aboutus-bts-grid {
+    display: grid;
+    grid-template-columns: 150px 150px;
+    grid-column-gap: 14.5px;
+    grid-row-gap: 20px;
+    margin: 0 auto;
+    width: fit-content;
+    padding: unset;
+    background: unset;
+    border-radius: 7px;
+}
+    .team-grid {
+        display: grid;
+    grid-template-columns: 48% 48%;
+    grid-column-gap: 4%;
+    grid-row-gap: 20px;
+        width: 90%;
+    }
+
+    .navbar-toggle {
+        background: #0071bb !important;
+    position: relative;
+    float: right;
+    padding: 9px 5px;
+    margin-right: 15px;
+    margin-top: unset;
+    margin-bottom: unset;
+    background-color: transparent;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    }
+    .navbar-toggle .icon-bar {
+    display: block;
+    background: #fff;
+    width: 22px;
+    height: 2px;
+    border-radius: 1px;
+}
+.logo {
+    width: 215px;
+}
+.aboutus-top-text1 {
+    margin-top: 1px;
+    font-size: 21px;
+}
+    .aboutus-down-text {
+    font-size: 13px;
+    padding-top: 0px;
+}
+.unset-nav {
+    color: #fff;
+    /* width: fit-content; */
+    padding-left: 10px;
+}
+.navlink-Enroll {
+    width: fit-content;
+}
+
+.navbar-nav {
+    
+    padding-bottom: 30px;
+}
+.team-img-container {
+    height: fit-content;
+}
+
+.grayish {
+    height: 60%;
+}
+
+.AboutUs-title {
+    padding-top: 0px;
+    /* text-align: center;
+    font-size: 24px;
+    color: #0071bb; */
+    margin-top: unset;
+    /* text-transform: capitalize; */
+    margin: 20px;
+}
+
+.grid-maker-course {
+    margin-top: 0%;
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.box-courses {
+    margin-bottom: 20px;
+}
+
+.mentors-showcase {
+    margin-top: 3%;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+.showcase-text-top {
+    font-size: 25px;
+}
+.showcase-text-bottom {
+    font-size: 18px;
+    padding: 0px;
+}
+.showcase-cards {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    grid-column-gap: 5%;
+}
+.showcase-card {
+    background: #0071bb;
+    padding: 10px;
+}
+.showcase-card img {
+    width: 63%;
+}
+.showcase-card-text-top {
+    font-size: 14px;
+    padding: 10px 7px;
+}
+.showcase-card-text-bottom {
+    display: none;
+    font-size: 6px;
+}
+.mentors-carousel {
+    width: 90%;
+    margin: 30px auto;
+}
+.carousel-indicators .active {
+    height: unset;
+    width: 80px;
+}
+.carousel-indicators li {
+    text-indent: unset;
+    border: 1px solid #b57777;
+    width: 80px;
+}
+.mentor-grid-child {
+    height: unset;
+    overflow: hidden;
+    border-radius: 7px;
+    color: #fff;
+}
+.mentor-image-container {
+    height: unset;
+    overflow: hidden;
+}
+.mentor-description {
+    background: #7ec4fd;
+    text-align: center;
+    font-size: 11px;
+    height: unset;
+}
+.mentor-grid-display {
+    display: grid;
+    grid-template-columns: 48% 48%;
+    grid-column-gap: 4%;
+    grid-row-gap: 20px;
+}
+.social {
+    padding: 5px;
+}
+.social ul li {
+    display: inline-block;
+    margin-right: 5px;
+    width: 15px;
+    height: 15px;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 9px;
+}
+.blog-grid {
+    display: block;
+    
+}
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    grid-template-columns: unset;
+    grid-column-gap: unset;
+    grid-row-gap: unset;
+    width: 100%;
+}
+
+.skill-box {
+    
+    background-color: #eb596b;
+    border-radius: 25px;
+    padding: 5%;
+    margin-right: 5px;
+    margin-top: 5px;
+    color: #fff;
+    text-align: center;
+}
+.blog-grid-child {
+    height: unset;
+    margin-bottom: 20px;
+}
+.popupdiv {
+    padding: 5px 0;
+}
+
+.navlist
+{
+    width: 100%;
+}
+
+.nav > li > a {
+    border: 1px solid transparent;
+    padding: 5px 19px;
+    font-size: 20px;
+    line-height: unset;
+}
+
+.w3-bar-block .w3-bar-item {
+    width: 100%;
+    
+    padding: 0px 30px;
+    margin-top: 20px;
+    
+}
+.w3-large {
+    font-size: 25px!important;
+}
+.details-course ul {
+    width: 80%;
+    margin: 5px auto;
+    padding: 5px 12px;
+    text-align: justify;
+}
+.character {
+    width: 100%;
+}
+
+.main-text{
+    text-align: center;
+}
+.chart-container {
+    float: unset;
+    width: 100%;
+    height: 75vh;
+    overflow: hidden;
+}
+.carousel-indicators li{
+     width: 90px;
+}
+.carousel-indicators .active {
+    height: unset;
+    width: 90px;
+}
+.background-image-container
+{
+    display: none;
+}
+.contact-main-container {
+    width: fit-content;
+    display: block;
+    margin: 0 auto;
+}
+    .form-contact-cont {
+    position: unset;
+    /* top: 50%; */
+    /* left: 0; */
+    right: 0;
+    transform: unset;
+}
+.internal-enroll-container {
+    width: fit-content;
+    display: block;
+}
+.form-enroll-cont {
+    position: unset;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: unset
+}
+body{
+   overflow-x: hidden; 
+}
+
+.events-top-image {
+    margin-bottom: 20px;
+}
+
+.events-main-event-content-main-container {
+    position: relative;
+    width: 45%;
+    float: right;
+    color: #0071bb;
+    opacity: 0.8;
+    height: 100%;
+    background: #fff;
+    padding: 2px 5px;
+}
+.events-main-event-image {
+    width: 108%;
+}
+.events-main-event-content-title {
+    font-size: 16px;
+    margin-bottom: 0px;
+}
+.events-main-event-content-content {
+    width: 100%;
+    font-size: 12px;
+}
+.events-main-event-content-bottom-container {
+    font-weight: bold;
+    font-size: 11px;
+}
+.events-main-event-content-date {
+    margin-bottom: 0px;
+}
+.events-main-event-content-location {
+     margin-bottom: 0px;
+}
+.events-main-event-content-top-container {
+    margin-bottom: 0px;
+}
+.events-grid-container {
+    display: grid;
+    grid-template-columns: 48% 48%;
+    grid-column-gap: 4%;
+    grid-row-gap: 2%;
+    margin: 40px 0;
+}
+.circle-date-container {
+    padding: 10px;
+    font-size: 13px;
+}
+.events-grid-content-container {
+    font-size: 13px;
+    background: #ececec;
+    padding: 9px;
+}
+
+.scholar-title {
+    font-size: 30px;
+    position: unset;
+    left: -15%;
+}
+
+.scholar-cards-parent {
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    grid-column-gap: 5%;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.scholar-card-img {
+    width: 100%;
+}
+
+.scholar-card {
+    border-radius: 7px;
+    padding: 10px;
+    background: #fff;
+    color: gray;
+    box-shadow: 0 5px 5px 0;
+}
+
+.scholar-card-title {
+    font-size: 14px;
+}
+
+.scholar-grid-container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px 0;
+    background: #e7e7e77a;
+}
+
+.scholar-form {
+    background: #e7e7e77a;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    padding-bottom: 20px;
+    border-radius: 7px;
+}
+.scholar-card-desc {
+    display: none;
+}
+.scholar-card-title {
+    font-size: 13px;
+    padding: 0px;
+    /* text-align: center; */
+}
+.scholarship-form-row2 {
+    display: block;
+    width: 90%;
+}
+.scholarship-form-content {
+    position: relative;
+    margin-bottom: 45px;
+    padding: 5px;
+    margin: 0 auto;
+    width: 90%;
+}
+.input-field>label {
+    color: #9e9e9e;
+    position: absolute;
+    top: 0;
+    left: 8px;
+    font-size: 12px;
+}
+.scholar-form-title {
+    text-align: center;
+    font-size: 25px;
+}
+.contact-form {
+    background: #4543530d;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.form-content select {
+    width: 100%;
+    background: transparent;
+    border: 1px solid #cacaca;
+    color: #9ca1b4;
+    font-weight: bold;
+    height: 2rem;
+    font-size: 12px;
+}
+.main-text {
+    position: unset;
+    margin-top: 30px;
+}
+
+.icon-facebook {
+  vertical-align:  middle;
+  color: #3b5998;
+}
+.icon-linkedin {
+  vertical-align: middle;
+  color: #0e5983;
+}
+.icon-medium {
+  vertical-align: middle;
+  color: #090706;
+}
+.icon-twitter {
+  vertical-align: middle;
+  color: #50abf1;
+}
+.icon-github {
+  vertical-align: middle;
+  color: #000000;
+}
+}

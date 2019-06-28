@@ -3,44 +3,6 @@
 
 {% block events-script %}
 
-<script>
-
-    starter =  () => {
-
-        var topImageHolder = document.getElementsByClassName("events-top-image-holder");
-        var topContainer = document.getElementsByClassName("events-top-image");
-        var mainEvent = document.getElementsByClassName("events-main-event-holder")[0];
-        var mainEventImage = document.getElementsByClassName("events-main-event-image-container")[0];
-        var circle = document.getElementsByClassName("circle-date-container");
-        var height = topImageHolder[0].clientHeight;
-        topImageHolder[0].style.height = (height - 100) + "px";
-        topImageHolder[0].style.overflow = "hidden";
-        topContainer[0].style.height = (height - 50) + "px";
-        topContainer[0].style.overflow = "hidden";
-        mainEvent.style.height = (height - 100) + "px";
-        mainEvent.style.overflow = "hidden";
-        mainEventImage.style.height = (height - 100) + "px";
-        mainEventImage.style.overflow = "hidden";
-        var a = document.getElementById("aa").clientHeight;
-        var content = document.getElementsByClassName("events-grid-content-container");
-        for (i = 0; i < circle.length; i++) {
-            circle[i].style.height = circle[i].clientWidth + "px";
-            circle[i].style.borderRadius = "50%";
-            circle[i].style.top = (a - circle[i].clientWidth / 2) + "px";
-            circle[i].style.left = "20px";
-            content[i].style.paddingTop = (circle[i].clientWidth / 2 + 10) + "px";
-        }
-        // var grid = document.getElementsByClassName("events-grid-container");
-        // grid.style.gridRowGap= grid.
-        // console.log(document.getElementsByClassName("events-grid-child"));
-
-    }
-
-    $(document).ready( async ()=>{
-    await    starter();
-
-    })
-</script>
 
 {% endblock events-script %}
 
@@ -86,7 +48,7 @@
                             <div class="circle-date-top">{{data.date|date:"M"}}</div>
                             <div class="circle-date-bottom">{{data.date.day}}, {{data.date.year}}</div>
                         </div>
-                        <div class="events-grid-image-container"><img id="aa" src="{% static data.image %}"></div>
+                        <div class="events-grid-image-container"><img class="events-images" src="{% static data.image %}"></div>
                         <div class="events-grid-content-container">
                             <div class="events-grid-content1"><b>{{data.title}}</b></div>
                             <div class="events-grid-content2">{{data.description|linebreaks}}</div>
@@ -101,4 +63,71 @@
                 <button class="events-last-button navlink-Enroll">All Events</button>
             </div>
         </div>
+
+
+
+<script>
+
+    function starter() {
+
+        var topImageHolder = document.getElementsByClassName("events-top-image-holder");
+        var topContainer = document.getElementsByClassName("events-top-image");
+        var mainEvent = document.getElementsByClassName("events-main-event-holder")[0];
+        var mainEventImage = document.getElementsByClassName("events-main-event-image-container")[0];
+        var circle = document.getElementsByClassName("circle-date-container");
+        var height = topImageHolder[0].clientHeight;
+        if (screen.width>600){
+            topImageHolder[0].style.height = (height - 100) + "px";
+            topImageHolder[0].style.overflow = "hidden";
+            topContainer[0].style.height = (height - 50) + "px";
+            topContainer[0].style.overflow = "hidden";
+            mainEvent.style.height = (height - 100) + "px";
+            mainEvent.style.overflow = "hidden";
+            mainEventImage.style.height = (height - 100) + "px";
+            mainEventImage.style.overflow = "hidden";
+            var eventsImages = document.getElementsByClassName("events-images");
+            var content = document.getElementsByClassName("events-grid-content-container");
+            for (i = 0; i < circle.length; i++) {
+                circle[i].style.height = circle[i].clientWidth + "px";
+                circle[i].style.borderRadius = "50%";
+                circle[i].style.top = (eventsImages[i].clientHeight - circle[i].clientWidth / 2) + "px";
+                circle[i].style.left = "20px";
+                content[i].style.paddingTop = (circle[i].clientWidth / 2 + 10) + "px";
+            }
+        }
+        else
+        {
+            topImageHolder[0].style.height = (height - 40) + "px";
+            topImageHolder[0].style.overflow = "hidden";
+            topContainer[0].style.height = (height - 40) + "px";
+            topContainer[0].style.overflow = "hidden";
+            mainEvent.style.height = (height + 8) + "px";
+            mainEvent.style.overflow = "hidden";
+            mainEventImage.style.height = (height + 8) + "px";
+            mainEventImage.style.overflow = "hidden";
+            var eventsImages = document.getElementsByClassName("events-images");
+            var content = document.getElementsByClassName("events-grid-content-container");
+            for (i = 0; i < circle.length; i++) {
+                circle[i].style.height = circle[i].clientWidth + "px";
+                circle[i].style.borderRadius = "50%";
+                circle[i].style.top = (eventsImages[i].clientHeight - circle[i].clientWidth / 2) + "px";
+                circle[i].style.left = "9px";
+                content[i].style.paddingTop = (circle[i].clientWidth / 2 + 10) + "px";
+            }
+
+        }
+
+        
+        // var grid = document.getElementsByClassName("events-grid-container");
+        // grid.style.gridRowGap= grid.
+        // console.log(document.getElementsByClassName("events-grid-child"));
+
+    }
+
+    $(document).ready( async ()=>{
+    await    starter();
+
+    })
+    
+</script>
 {% endblock content %}

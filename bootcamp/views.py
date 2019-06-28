@@ -5,9 +5,11 @@ from visitor import models as visitor_models
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from bootcamp.common import register_user
+from bootcamp.common import certify
 import re
 from django.db.models import Q
 from event import models as event_models
+from certificate import models as certificate_models
 
 
 def index(request):
@@ -318,3 +320,40 @@ def events(request):
     
     return render(request, "bootcamp/events.html", context=context)
 
+
+def certificate(request):
+    if request.method == "POST":
+        if certify.check_form(request):
+            if certify.check_fields(request):
+                try:
+                    certificate_data = certificate_models.Certificate.objects.get(verification=request.POST['certificate_number'])
+                    if certificate_data:
+                        data = []
+                        data.append({
+                            'full_name':certificate_data.full_name,
+                            'course':certificate_data.course,
+                            'course_duration':certificate_data.course_duration,
+                            'start_date':certificate_data.start_date,
+                            'completed_data':certificate_data.completed_date,
+                            'trainer':certificate_data.trainer.firstName+certificate_data.trainer.lastName,
+                            'photo':certificate_data.photo.url.split('/static/')[1],
+                            'verification':certificate_data.verification
+                        })    
+                        context = {}
+                        context.update({'data':data})
+                        return render(request, "certificate/get_certificate.html", context=context)
+                    else:
+                        print(1)
+                        messages.success(request, "Invalid certificate.", extra_tags="0")
+                except (Exception, certificate_models.Certificate.DoesNotExist) as e:
+                    print(e)
+                    messages.success(request, "Invalid certificate.", extra_tags="0")
+            else:
+                print(2)
+                messages.success(request, "Please fill the field. Thank You.", extra_tags="0")
+        else:
+            print(3)
+            messages.success(request, "Something gone wrong.", extra_tags="0")
+        return HttpResponseRedirect(reverse('index'))
+    else:
+        return render(request, "certificate/index.html")

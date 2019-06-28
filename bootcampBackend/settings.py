@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'syllabus',
     'visitor',
-    'event'
+    'event',
+    'certificate'
 ]
 
 MIDDLEWARE = [
